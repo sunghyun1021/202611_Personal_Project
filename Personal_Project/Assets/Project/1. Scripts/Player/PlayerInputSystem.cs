@@ -7,6 +7,7 @@ public class PlayerInputSystem : MonoBehaviour
     
     [HideInInspector] public bool isDashed;
     public Vector3 MoveAxisRaw { get; private set; }
+    public Vector2 MousePosition => _controls.Player.MouseAim.ReadValue<Vector2>();
 
     // ---------- Event Method ----------
 

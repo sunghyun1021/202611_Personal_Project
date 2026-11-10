@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private WaitForSeconds _waitForSeconds;
 
     private bool _canDash;
+    private bool _isFacingRight;
     
     // ---------- Event Method ----------
 
@@ -18,6 +19,15 @@ public class PlayerMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (_playerInput.MoveAxisRaw.z < 0 && _isFacingRight)
+        {
+            Filp();
+        }
+        else if (_playerInput.MoveAxisRaw.z > 0 && !_isFacingRight)
+        {
+            Filp();
+        }
+        
         Move();
         Dash();
     }
@@ -35,11 +45,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _waitForSeconds = new WaitForSeconds(_playerData.DashCoolTime);
         _canDash = true;
+        _isFacingRight = true;
     }
 
     private void Move()
     {
-        transform.Translate(_playerInput.MoveAxisRaw * (_playerData.MoveSpeed * Time.deltaTime));
+        if (_playerInput.MoveAxisRaw.z == 0) return;
+        
+        transform.Translate(Vector3.forward * (_playerData.MoveSpeed * Time.deltaTime));
     }
 
     private void Dash()
@@ -54,6 +67,26 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.isDashed = false;
         _canDash = false;
         StartCoroutine(DashCoolCalculate());
+    }
+
+    private void Filp()
+    {
+        if (_isFacingRight)
+        {
+            transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            _isFacingRight = false;
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            _isFacingRight = true;
+        }
+    }
+
+    private void Aim()
+    {
+        Vector3 mouseScreenPos = Input.mousePosition;
+        
     }
 
     private IEnumerator DashCoolCalculate()
