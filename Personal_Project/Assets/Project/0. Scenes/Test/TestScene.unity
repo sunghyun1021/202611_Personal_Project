@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   _player: {fileID: 908836273}
+  _clampValue: 35
 --- !u!1 &437537394
 GameObject:
   m_ObjectHideFlags: 0
