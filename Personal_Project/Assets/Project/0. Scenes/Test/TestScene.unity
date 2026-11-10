@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 908836273}
   - component: {fileID: 908836277}
   - component: {fileID: 908836276}
+  - component: {fileID: 908836278}
   - component: {fileID: 908836275}
   - component: {fileID: 908836274}
   m_Layer: 0
@@ -363,8 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce8628eeab9955409f48be3653b4d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  _moveSpeed: 5
-  _DashForce: 20
 --- !u!54 &908836276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -415,6 +414,23 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &908836278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908836272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864016fa3babff145ad8656bf15bd239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  _maxHp: 100
+  _maxShield: 50
+  _moveSpeed: 5
+  _DashForce: 20
+  _DashCoolTime: 2
 --- !u!1 &1458173017
 GameObject:
   m_ObjectHideFlags: 0
