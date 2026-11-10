@@ -5,6 +5,7 @@ public class PlayerInputSystem : MonoBehaviour
 {
     private PlayerControls _controls;
     
+    [HideInInspector] public bool isDashed;
     public Vector3 MoveAxisRaw { get; private set; }
 
     // ---------- Event Method ----------
@@ -36,15 +37,24 @@ public class PlayerInputSystem : MonoBehaviour
         MoveAxisRaw = Vector3.zero;
     }
 
+    private void OnDash(InputAction.CallbackContext context)
+    {
+        isDashed = true;
+    }
+
     private void BindInputEvents()
     {
         _controls.Player.Move.performed += OnMove;
         _controls.Player.Move.canceled += OnMoveStop;
+
+        _controls.Player.Dash.started += OnDash;
     }
 
     private void UnBindInputEvents()
     {
         _controls.Player.Move.performed -= OnMove;
         _controls.Player.Move.canceled -= OnMoveStop;
+        
+        _controls.Player.Dash.started -= OnDash;
     }
 }
