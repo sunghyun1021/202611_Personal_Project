@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(_playerInput.MoveAxisRaw * (_moveSpeed * Time.deltaTime)); 
+        Move();
     }
 
     // ----------------------------------
@@ -21,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     private void CacheComponents()
     {
         _playerInput = GetComponent<PlayerInputSystem>();
+    }
+
+    private void Move()
+    {
+        transform.Translate(_playerInput.MoveAxisRaw * (_moveSpeed * Time.deltaTime));
     }
     
     
