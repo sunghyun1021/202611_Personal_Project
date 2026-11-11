@@ -19,11 +19,11 @@ public class PlayerMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (_playerInput.MoveAxisRaw.z < 0 && _isFacingRight)
+        if (_playerInput.MoveAxisRaw.x < 0 && _isFacingRight)
         {
             Filp();
         }
-        else if (_playerInput.MoveAxisRaw.z > 0 && !_isFacingRight)
+        else if (_playerInput.MoveAxisRaw.x > 0 && !_isFacingRight)
         {
             Filp();
         }
@@ -50,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (_playerInput.MoveAxisRaw.z == 0) return;
+        if (_playerInput.MoveAxisRaw.x == 0) return;
         
-        transform.Translate(Vector3.forward * (_playerData.MoveSpeed * Time.deltaTime));
+        transform.Translate(transform.forward * (_playerData.MoveSpeed * Time.deltaTime), Space.World);
     }
 
     private void Dash()
@@ -73,12 +73,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isFacingRight)
         {
-            transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            transform.localRotation = Quaternion.Euler(0f, -90f, 0f);
             _isFacingRight = false;
         }
         else
         {
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+            transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
             _isFacingRight = true;
         }
     }

@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private float _clampValue;
 
-    private Vector3 _StartPosition = new(20f, 4f, 0f);
-    private Vector3 _StartRotation = new(10f, -90f, 0f);
+    private Vector3 _StartPosition = new(0f, 4f, -30f);
+    private Vector3 _StartRotation = new(10f, 0f, 0f);
         
     // ---------- Event Method ----------
     
@@ -28,8 +28,8 @@ public class CameraController : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, _player.position, Time.deltaTime * 2);
         
-        float positionZ = Mathf.Clamp(transform.position.z, -_clampValue, _clampValue);
+        float positionX = Mathf.Clamp(transform.position.x, -_clampValue, _clampValue);
         
-        transform.position = new Vector3(_StartPosition.x, _StartPosition.y, positionZ);
+        transform.position = new Vector3(positionX, _StartPosition.y, _StartPosition.z);
     }
 }

@@ -31,6 +31,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         Vector2 move = context.ReadValue<Vector2>();
         MoveAxisRaw = new Vector3(move.x, 0, move.y);
+        Debug.Log($"MoveAxisRaw : {MoveAxisRaw}");
     }
 
     private void OnMoveStop(InputAction.CallbackContext context)
