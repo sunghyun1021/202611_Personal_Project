@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Animator _playerAnimator;
     private PlayerData _playerData;
     private Rigidbody _rigidbody;
     private PlayerInputSystem _playerInput;
@@ -19,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
     
     private void FixedUpdate()
     {
+        float flipX = _isFacingRight ? 1 : -1;
+        
+        _playerAnimator.SetFloat("Speed",_playerInput.MoveAxisRaw.x * flipX);
+        
         if (_playerInput.MoveAxisRaw.x < 0 && _isFacingRight)
         {
             Filp();
