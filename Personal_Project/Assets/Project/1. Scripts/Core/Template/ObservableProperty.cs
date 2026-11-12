@@ -1,16 +1,44 @@
-using UnityEngine;
+using System;
 
-public class ObservableProperty : MonoBehaviour
+public class ObservableProperty<T>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Action<T> _onValueChanged;
+
+    private T _value;
+
+    public T Value
     {
-        
+        get => _value;
+
+        set
+        {
+            _value = value;
+            Notify();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public ObservableProperty(T initialValue)
     {
-        
+        _value = initialValue;
+    }
+    
+    public void Notify()
+    {
+        _onValueChanged?.Invoke(_value);
+    }
+
+    public void AddListener(Action<T> onValueChanged)
+    {
+        _onValueChanged += onValueChanged;
+    }
+
+    public void RemoveListener(Action<T> onValueChanged)
+    {
+        _onValueChanged -= onValueChanged;
+    }
+
+    public void RemoveAllListeners()
+    {
+        _onValueChanged = null;
     }
 }
