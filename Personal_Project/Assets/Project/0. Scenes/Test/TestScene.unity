@@ -224,8 +224,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1a5bd5b2f5fe64f8d74d6b873289da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  _player: {fileID: 0}
+  _player: {fileID: 580886063}
   _clampValue: 35
+--- !u!4 &580886063 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 67968383670073796, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
+  m_PrefabInstance: {fileID: 7059932721877461008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &633737747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,10 +1124,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1765353450}
     - target: {fileID: 8560757973704842614, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
-      propertyPath: m_Data.m_ConstrainedObject
-      value: 
-      objectReference: {fileID: 7205333321834354170}
-    - target: {fileID: 8560757973704842614, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 1765353450}
@@ -1131,11 +1132,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
---- !u!4 &7205333321834354170 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7731489342016902744, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
-  m_PrefabInstance: {fileID: 7059932721877461008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
