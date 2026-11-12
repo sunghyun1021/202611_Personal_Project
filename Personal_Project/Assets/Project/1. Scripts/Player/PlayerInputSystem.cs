@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,8 @@ public class PlayerInputSystem : MonoBehaviour
 {
     private PlayerControls _controls;
     
-    [HideInInspector] public bool isDashed;
+    [HideInInspector] public bool IsDashed;
+    [HideInInspector] public bool IsShoot; 
     public Vector3 MoveAxisRaw { get; private set; }
     public Vector2 MousePosition => _controls.Player.MouseAim.ReadValue<Vector2>();
 
@@ -40,15 +42,30 @@ public class PlayerInputSystem : MonoBehaviour
 
     private void OnDash(InputAction.CallbackContext context)
     {
-        isDashed = true;
+        IsDashed = true;
     }
 
+    private void OnShoot(InputAction.CallbackContext context)
+    {
+        IsShoot = true;
+    }
+
+    private void OnShootStop(InputAction.CallbackContext context)
+    {
+        IsShoot = false;
+    }
+
+    // ---------- Event Binding ----------
+    
     private void BindInputEvents()
     {
         _controls.Player.Move.performed += OnMove;
         _controls.Player.Move.canceled += OnMoveStop;
 
         _controls.Player.Dash.started += OnDash;
+
+        _controls.Player.Shoot.performed += OnShoot;
+        _controls.Player.Shoot.canceled += OnShootStop;
     }
 
     private void UnBindInputEvents()
@@ -57,5 +74,8 @@ public class PlayerInputSystem : MonoBehaviour
         _controls.Player.Move.canceled -= OnMoveStop;
         
         _controls.Player.Dash.started -= OnDash;
+        
+        _controls.Player.Shoot.performed -= OnShoot;
+        _controls.Player.Shoot.canceled -= OnShootStop;
     }
 }
