@@ -114,7 +114,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""MouseAim"",
                     ""type"": ""Value"",
                     ""id"": ""d1a62d98-54d5-4d1c-992a-6f912bc75147"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

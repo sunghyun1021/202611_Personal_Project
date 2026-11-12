@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _canDash;
     private bool _isFacingRight;
+
+    public float DepthFromCamera = 10f;
+    public Transform AimPoint;
     
     // ---------- Event Method ----------
 
@@ -21,18 +24,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         float flipX = _isFacingRight ? 1 : -1;
+
+        _playerAnimator.SetFloat("Speed", _playerInput.MoveAxisRaw.x * flipX);
         
-        _playerAnimator.SetFloat("Speed",_playerInput.MoveAxisRaw.x * flipX);
-        
-        if (_playerInput.MoveAxisRaw.x < 0 && _isFacingRight)
-        {
-            Filp();
-        }
-        else if (_playerInput.MoveAxisRaw.x > 0 && !_isFacingRight)
-        {
-            Filp();
-        }
-        
+        Aim();
         Move();
         Dash();
     }
@@ -57,7 +52,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_playerInput.MoveAxisRaw.x == 0) return;
         
-        transform.Translate(transform.forward * (_playerData.MoveSpeed * Time.deltaTime), Space.World);
+        _rigidbody.linearVelocity = new Vector3(
+            _playerInput.MoveAxisRaw.x * _playerData.MoveSpeed,
+            _rigidbody.linearVelocity.y,
+            _playerInput.MoveAxisRaw.z
+            );
     }
 
     private void Dash()
@@ -90,8 +89,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Aim()
     {
-        Vector3 mouseScreenPos = Input.mousePosition;
+        Vector3 mouseScreenPos = new Vector3(
+            _playerInput.MousePosition.x,
+            _playerInput.MousePosition.y,
+            DepthFromCamera);
+
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
         
+        AimPoint.position = worldPos;
+
+        if (worldPos.x < transform.position.x && _isFacingRight)
+        {
+            Filp();
+        }
+        else if (worldPos.x > transform.position.x && !_isFacingRight)
+        {
+            Filp(); 
+        }
     }
 
     private IEnumerator DashCoolCalculate()
