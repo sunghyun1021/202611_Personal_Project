@@ -30,7 +30,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         Vector2 move = context.ReadValue<Vector2>();
-        MoveAxisRaw = new Vector3(move.x, 0, move.y);
+        MoveAxisRaw = new Vector3(move.x, 0, 0);
     }
 
     private void OnMoveStop(InputAction.CallbackContext context)

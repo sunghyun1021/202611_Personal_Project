@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _canDash;
     private bool _isFacingRight;
+    private bool _isDashing;
 
     public float DepthFromCamera = 10f;
     public Transform AimPoint;
@@ -51,12 +52,10 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         if (_playerInput.MoveAxisRaw.x == 0) return;
-        
+        if (_isDashing) return;
+
         _rigidbody.linearVelocity = new Vector3(
-            _playerInput.MoveAxisRaw.x * _playerData.MoveSpeed,
-            _rigidbody.linearVelocity.y,
-            _playerInput.MoveAxisRaw.z
-            );
+            _playerInput.MoveAxisRaw.x * _playerData.MoveSpeed, 0f, 0f);
     }
 
     private void Dash()
@@ -66,10 +65,12 @@ public class PlayerMovement : MonoBehaviour
             _playerInput.isDashed = false;
             return;
         }
-        
-        _rigidbody.AddForce(transform.forward * _playerData.DashForce, ForceMode.Impulse);
+
+        _isDashing = true;
+        _rigidbody.AddForce(transform.forward * (_playerInput.MoveAxisRaw.x * _playerData.DashForce), ForceMode.Impulse);
         _playerInput.isDashed = false;
         _canDash = false;
+        StartCoroutine(MoveInputStop());
         StartCoroutine(DashCoolCalculate());
     }
 
@@ -108,6 +109,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private IEnumerator MoveInputStop()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _isDashing = false;
+    }
+    
     private IEnumerator DashCoolCalculate()
     {
         yield return _waitForSeconds;
