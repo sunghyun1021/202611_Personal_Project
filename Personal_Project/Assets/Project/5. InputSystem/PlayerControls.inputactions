@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MouseAim",
+                    "type": "Value",
+                    "id": "d1a62d98-54d5-4d1c-992a-6f912bc75147",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -38,7 +47,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Down",
+                    "name": "Left",
                     "id": "61f6a6f7-9253-4928-98c2-de20a0834217",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -49,7 +58,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Up",
+                    "name": "Right",
                     "id": "f24939fc-34d3-4ea6-8c05-e19ddeeadc85",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -67,6 +76,17 @@
                     "processors": "",
                     "groups": ";PC",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "219ecc58-faf1-4568-86b6-8d085613a848",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";PC",
+                    "action": "MouseAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
