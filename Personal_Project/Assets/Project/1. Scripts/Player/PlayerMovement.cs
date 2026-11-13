@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private float DepthFromCamera;
     [SerializeField] private Animator _playerAnimator;
+    
     private PlayerData _playerData;
     private Rigidbody _rigidbody;
     private PlayerInputSystem _playerInput;
     private WaitForSeconds _waitForSeconds;
-
     private bool _canDash;
     private bool _isFacingRight;
     private bool _isDashing;
 
-    public float DepthFromCamera = 10f;
     public Transform AimPoint;
     
     // ---------- Event Method ----------
@@ -60,18 +60,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Dash()
     {
-        if (!_canDash || !_playerInput.isDashed)
+        if (!_canDash || !_playerInput.IsDashed)
         {
-            _playerInput.isDashed = false;
+            _playerInput.IsDashed = false;
             return;
         }
 
         _isDashing = true;
-        _rigidbody.AddForce(transform.forward * (_playerInput.MoveAxisRaw.x * _playerData.DashForce), ForceMode.Impulse);
-        _playerInput.isDashed = false;
+        _rigidbody.AddForce(_playerInput.MoveAxisRaw * _playerData.DashForce, ForceMode.Impulse);
+        _playerInput.IsDashed = false;
         _canDash = false;
-        StartCoroutine(MoveInputStop());
         StartCoroutine(DashCoolCalculate());
+        StartCoroutine(MoveInputStop());
     }
 
     private void Filp()
