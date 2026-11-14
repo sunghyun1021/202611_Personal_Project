@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public class PoolData : MonoBehaviour
+[Serializable]
+public struct PoolData
 {
     [Header("소환할 프리팹 타입")] 
     public PoolableType Type;
