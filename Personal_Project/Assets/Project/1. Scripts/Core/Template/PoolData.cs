@@ -1,0 +1,13 @@
+using UnityEngine;
+
+public class PoolData : MonoBehaviour
+{
+    [Header("소환할 프리팹 타입")] 
+    public PoolableType Type;
+    
+    [Header("소환할 개수")]
+    public int Size;
+    
+    [Header("소환할 프리팹")] 
+    public GameObject Prefab;
+}
