@@ -1,6 +1,4 @@
-using System;
 using Unity.Behavior;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour, IPoolable, IDamageable
@@ -28,7 +26,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private void OnEnable() => DataReset();
 
     private void Start() => Init();
-
+    
     // ----------------------------------
 
     private void CacheComponents()
@@ -41,8 +39,9 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private void Init()
     {
         if (_attackType == null) _attackType = GetComponent<AttackBase>();
-        _behaviorAgent.SetVariableValue("Player", _playerTransform);
+        _behaviorAgent.SetVariableValue("player", _playerTransform);
         _behaviorAgent.SetVariableValue("attackType", _attackType);
+        _attackType.PlayerTransform = _playerTransform;
     }
 
     private void DataReset()

@@ -3,8 +3,9 @@ using UnityEngine;
 
 public abstract class AttackBase : MonoBehaviour
 {
-    [SerializeField] protected Transform _playerTransform;
     [SerializeField] protected MonsterData _monsterData;
+    
+    public Transform PlayerTransform;
 
     private void Awake()
     {
