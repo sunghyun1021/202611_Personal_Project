@@ -7,7 +7,8 @@ public class PlayerInputSystem : MonoBehaviour
     private PlayerControls _controls;
     
     [HideInInspector] public bool IsDashed;
-    [HideInInspector] public bool IsShoot; 
+    [HideInInspector] public bool IsShootKeyPressed; 
+    [HideInInspector] public bool IsTestKeyPressed; 
     public Vector3 MoveAxisRaw { get; private set; }
     public Vector2 MousePosition => _controls.Player.MouseAim.ReadValue<Vector2>();
 
@@ -29,6 +30,11 @@ public class PlayerInputSystem : MonoBehaviour
 
     // ----------------------------------
 
+    private void OnTest(InputAction.CallbackContext context)
+    {
+        IsTestKeyPressed = true;
+    }
+    
     private void OnMove(InputAction.CallbackContext context)
     {
         Vector2 move = context.ReadValue<Vector2>();
@@ -47,35 +53,39 @@ public class PlayerInputSystem : MonoBehaviour
 
     private void OnShoot(InputAction.CallbackContext context)
     {
-        IsShoot = true;
+        IsShootKeyPressed = !IsShootKeyPressed;
     }
 
-    private void OnShootStop(InputAction.CallbackContext context)
-    {
-        IsShoot = false;
-    }
+    // private void OnShootStop(InputAction.CallbackContext context)
+    // {
+    //     IsShoot = false;
+    // }
 
     // ---------- Event Binding ----------
     
     private void BindInputEvents()
     {
+        _controls.Player.Test.started += OnTest;
+        
         _controls.Player.Move.performed += OnMove;
         _controls.Player.Move.canceled += OnMoveStop;
 
         _controls.Player.Dash.started += OnDash;
 
-        _controls.Player.Shoot.performed += OnShoot;
-        _controls.Player.Shoot.canceled += OnShootStop;
+        _controls.Player.Shoot.started += OnShoot;
+        _controls.Player.Shoot.canceled += OnShoot;
     }
 
     private void UnBindInputEvents()
     {
+        _controls.Player.Test.started -= OnTest;
+        
         _controls.Player.Move.performed -= OnMove;
         _controls.Player.Move.canceled -= OnMoveStop;
         
         _controls.Player.Dash.started -= OnDash;
         
-        _controls.Player.Shoot.performed -= OnShoot;
-        _controls.Player.Shoot.canceled -= OnShootStop;
+        _controls.Player.Shoot.started -= OnShoot;
+        _controls.Player.Shoot.canceled -= OnShoot;
     }
 }
