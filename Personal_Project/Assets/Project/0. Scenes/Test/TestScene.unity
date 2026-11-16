@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _playerAnimator: {fileID: 700301041}
   _muzzlePoint: {fileID: 376274273}
+  _invincibleTime: 0
   _projectilePrefab: {fileID: 6989906549488005017, guid: b3423e26a4f85d242b1377d6f3cc493a, type: 3}
   _shootCoolTime: 0.5
 --- !u!1 &633737747
@@ -1262,10 +1263,30 @@ PrefabInstance:
       propertyPath: AimPoint
       value: 
       objectReference: {fileID: 1765353450}
+    - target: {fileID: 3541105513937833562, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
+      propertyPath: MaxHealth._value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541105513937833562, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
+      propertyPath: MaxShield._value
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541105513937833562, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
+      propertyPath: CurrentHealth._value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541105513937833562, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
+      propertyPath: CurrentShield._value
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4016637285128611554, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
       objectReference: {fileID: 1765353450}
+    - target: {fileID: 5135555443041656294, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
+      propertyPath: _invincibleTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8560757973704842614, guid: 0723ae8eb3394a2478cad9fac6f50a06, type: 3}
       propertyPath: m_Data.m_SourceObjects.m_Item0.transform
       value: 
