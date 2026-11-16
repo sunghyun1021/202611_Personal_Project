@@ -10,12 +10,14 @@ public class MonsterData : MonoBehaviour
     public int AttackDamage;
     public float MoveSpeed;
 
+    public Action<MonsterController> OnDead;
+
     private void Awake()
     {
         InitData();
     }
 
-    private void InitData()
+    public void InitData()
     {
         if (_monsterSO == null)
         {
