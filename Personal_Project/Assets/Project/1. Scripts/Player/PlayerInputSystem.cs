@@ -54,6 +54,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void OnShoot(InputAction.CallbackContext context)
     {
         IsShootKeyPressed = !IsShootKeyPressed;
+        Debug.Log($"IsShootKeyPressed : {IsShootKeyPressed }");
     }
 
     // private void OnShootStop(InputAction.CallbackContext context)

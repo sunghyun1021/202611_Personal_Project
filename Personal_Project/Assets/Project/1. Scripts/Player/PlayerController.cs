@@ -63,7 +63,15 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Shoot()
     {
         _isCool = true;
-        Instantiate(_projectilePrefab, _muzzlePoint.position, _muzzlePoint.rotation);
+        Debug.Log("Shoot");
+        
+        // TODO 임시 테스트용 발사
+        GameObject obj = Instantiate(_projectilePrefab, _muzzlePoint.position, _muzzlePoint.rotation);
+
+        if (obj.TryGetComponent(out Projectile projectile))
+        {
+            projectile.Damage = 10;
+        }
         StartCoroutine(CarculateShootTime());
     }
 

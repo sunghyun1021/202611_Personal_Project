@@ -51,17 +51,20 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     
     public void TakeDamage(int damage)
     {
+        Debug.Log($"데미지 : {damage}");
         _monsterData.CurrentHealth.Value -= damage;
 
+        Debug.Log($"남은 체력 : {_monsterData.CurrentHealth.Value}");
         if (_monsterData.CurrentHealth.Value <= 0)
         {
+            Debug.Log("죽음");
             Dead();
         }
     }
 
     public void Dead()
     {
-        _monsterData.OnDead.Invoke(this);
+        _monsterData.OnDead?.Invoke(this);
      
         // TODO 애니메이션 실행, 잔여 몬스터 카운트 감소
         

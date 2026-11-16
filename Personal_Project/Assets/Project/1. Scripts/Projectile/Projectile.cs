@@ -2,12 +2,18 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPoolable
 {
+    [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _destroyTime;
 
     private WaitForSeconds _waitForSeconds;
+
+    public int Damage;
+    
+    public GameObject GameObject { get; }
+    public ObjectPool Source { get; set; }
 
     // ---------- Event Method ----------
 
@@ -17,7 +23,16 @@ public class Projectile : MonoBehaviour
     {
         transform.Translate(transform.up * (_moveSpeed * Time.deltaTime), Space.World);
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (_enemyLayer.Contains(other))
+        {
+            other.GetComponent<IDamageable>()?.TakeDamage(Damage);
+            Destroy(gameObject);
+        }
+    }
+
     // ----------------------------------
     
     private void Init()
@@ -30,5 +45,10 @@ public class Projectile : MonoBehaviour
     {
         yield return _waitForSeconds;
         Destroy(gameObject);
+    }
+    
+    public void ReturnToPool()
+    {
+        Source.Push(this);
     }
 }
