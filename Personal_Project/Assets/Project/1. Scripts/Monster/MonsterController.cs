@@ -8,7 +8,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
 
     [Header("몬스터 공격 타입")] 
     [SerializeField] private AttackBase _attackType;
-    
+    [SerializeField] private Animator _animator;
     [SerializeField] private Transform _playerTransform;
 
     private MonsterData _monsterData;
