@@ -2,18 +2,27 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private Animator _playerAnimator;
     [SerializeField] private Transform _muzzlePoint;
+    [SerializeField] private float _invincibleTime;
+    
+    // TODO 밑에 항목들은 임시용
     [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private float _shootCoolTime;
     
     private PlayerMovement _playerMovement;
     private PlayerData _playerData;
     private PlayerInputSystem _playerInputSystem;
-    private WaitForSeconds _waitForSeconds;
+    private WaitForSeconds _waitForShoot;
+    private WaitForSeconds _waitForInvincibleTime;
+    private int _remainDamage;
     private bool _isCool;
+    private bool _canHit;
+    
+    public event Action OnPlayerDead;
+    public GameObject GameObject { get => gameObject; }
     
     // ---------- Event Method ----------
     
@@ -23,9 +32,15 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        if (_playerInputSystem.IsShoot && !_isCool)
+        if (_playerInputSystem.IsShootKeyPressed && !_isCool)
         {
             Shoot();
+        }
+
+        if (_playerInputSystem.IsTestKeyPressed)
+        {
+            TakeDamage(20);
+            _playerInputSystem.IsTestKeyPressed = false;
         }
     }
 
@@ -40,7 +55,9 @@ public class PlayerController : MonoBehaviour
     
     private void Init()
     {
-        _waitForSeconds =  new WaitForSeconds(_shootCoolTime);
+        _waitForShoot =  new WaitForSeconds(_shootCoolTime);
+        _waitForInvincibleTime = new WaitForSeconds(_invincibleTime);
+        _canHit = true;
     }
 
     private void Shoot()
@@ -52,7 +69,48 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator CarculateShootTime()
     {
-        yield return _waitForSeconds;
+        yield return _waitForShoot;
         _isCool = false;
+    }
+
+    private IEnumerator CarculateInvincibleTime()
+    {
+        yield return _waitForInvincibleTime;
+        _canHit = true;
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        if (_canHit)
+        {
+            if (_playerData.CurrentShield.Value > 0)
+            {
+                if (_playerData.CurrentShield.Value - damage < 0)
+                {
+                    _remainDamage = damage - _playerData.CurrentShield.Value;
+                    _playerData.CurrentShield.Value = 0;
+                    _playerData.CurrentHealth.Value -= _remainDamage;
+                }
+                else
+                {
+                    _playerData.CurrentShield.Value -= damage;
+                }
+            }
+            else
+            {
+                _playerData.CurrentHealth.Value -= damage;
+            }
+
+            if (_playerData.CurrentHealth.Value <= 0)
+            {
+                Debug.Log("플레이어 사망");
+                OnPlayerDead?.Invoke();
+            }
+            else
+            {
+                _canHit = false;
+                StartCoroutine(CarculateInvincibleTime());
+            }
+        }
     }
 }
