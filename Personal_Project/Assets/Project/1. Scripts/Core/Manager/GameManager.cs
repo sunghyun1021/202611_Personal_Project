@@ -1,6 +1,15 @@
+using System;
 using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
-    [SerializeField] private PlayerController _player;
+    public PlayerController Player;
+    
+    // ---------- Event Method ----------
+
+    private void Awake() => SetSingleton();
+    
+    // ----------------------------------
+
+    
 }

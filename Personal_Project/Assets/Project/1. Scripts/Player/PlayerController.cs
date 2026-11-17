@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if (_playerInputSystem.IsTestKeyPressed)
         {
-            TakeDamage(20);
+            FlowManager.Instance.SpawnMonster();
             _playerInputSystem.IsTestKeyPressed = false;
         }
     }
@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInputSystem = GetComponent<PlayerInputSystem>();
         _collider = GetComponent<Collider>();
+
+        GameManager.Instance.Player = this;
     }
     
     private void Init()
@@ -94,7 +96,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     
     public void TakeDamage(int damage)
     {
-        Debug.Log($"{damage} 맞음");
         if (_canHit)
         {
             if (_playerData.CurrentShield.Value > 0)
@@ -117,14 +118,12 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             if (_playerData.CurrentHealth.Value <= 0)
             {
-                Debug.Log("플레이어 사망");
                 _playerAnimator.SetTrigger("Dead");
                 _collider.enabled = false;
                 OnPlayerDead?.Invoke();
             }
             else
             {
-                Debug.Log("무적임");
                 _canHit = false;
                 StartCoroutine(CarculateInvincibleTime());
             }

@@ -32,7 +32,7 @@ public class HitBox : MonoBehaviour
         
         if (damageable != null)
         {
-            damageable.TakeDamage(100);
+            damageable.TakeDamage(_monsterData.AttackDamage);
         }
     }
     

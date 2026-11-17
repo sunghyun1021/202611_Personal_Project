@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Behavior;
 using UnityEngine;
 
@@ -40,6 +41,8 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
 
     private void Init()
     {
+        _playerTransform = GameManager.Instance.Player.transform;
+        _behaviorAgent.enabled = true;
         if (_attackType == null) _attackType = GetComponent<AttackBase>();
         _behaviorAgent.SetVariableValue("player", _playerTransform);
         _behaviorAgent.SetVariableValue("attackType", _attackType);
@@ -50,6 +53,24 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private void DataReset()
     {
         _monsterData.InitData();
+    }
+
+    private IEnumerator WaitDeadAnimation()
+    {
+        float animationTime = _animator.GetCurrentAnimatorStateInfo(0).length;
+        
+        yield return new WaitForSeconds(animationTime + 1);
+        ReturnToPool();
+    }
+    
+    public void Dead()
+    {
+        _monsterData.OnDead?.Invoke(this);
+        _animator.SetTrigger("Dead");
+        _behaviorAgent.enabled = false;
+        // 잔여 몬스터 카운트 감소
+
+        StartCoroutine(WaitDeadAnimation());
     }
     
     public void TakeDamage(int damage)
@@ -63,15 +84,6 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
             Debug.Log("죽음");
             Dead();
         }
-    }
-
-    public void Dead()
-    {
-        _monsterData.OnDead?.Invoke(this);
-        _animator.SetTrigger("Dead");
-        // 잔여 몬스터 카운트 감소
-        
-        ReturnToPool();
     }
     
     public void ReturnToPool()

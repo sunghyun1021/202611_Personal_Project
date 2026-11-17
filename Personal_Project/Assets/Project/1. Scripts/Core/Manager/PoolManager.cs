@@ -43,14 +43,14 @@ public class PoolManager : SingletonBehaviour<PoolManager>
         }
     }
 
-    private IPoolable Take(PoolableType type)
+    public IPoolable Take(PoolableType type)
     {
         if (!_pool.ContainsKey(type)) return null;
 
         return _pool[type].Take();
     }
 
-    private IPoolable Take(MonsterType type)
+    public IPoolable Take(MonsterType type)
     {
         if (!_monsterPool.ContainsKey(type)) return null;
         
