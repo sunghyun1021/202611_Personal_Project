@@ -15,6 +15,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private MonsterData _monsterData;
     private BehaviorGraphAgent _behaviorAgent;
     private Rigidbody _rigidbody;
+    private Collider _collider;
     
     public GameObject GameObject { get => gameObject; }
     public Transform Transform { get => transform; }
@@ -36,7 +37,8 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
         _monsterData = GetComponent<MonsterData>();
         _behaviorAgent = GetComponent<BehaviorGraphAgent>();
         _rigidbody = GetComponent<Rigidbody>();
-        _animator = GetComponentInChildren<Animator>(); 
+        _animator = GetComponentInChildren<Animator>();
+        _collider = GetComponent<Collider>();
     }
 
     private void Init()
@@ -53,6 +55,8 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private void DataReset()
     {
         _monsterData.InitData();
+        _collider.enabled = true;
+        _rigidbody.useGravity = true;
     }
 
     private IEnumerator WaitDeadAnimation()
@@ -68,6 +72,8 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
         _monsterData.OnDead?.Invoke(this);
         _animator.SetTrigger("Dead");
         _behaviorAgent.enabled = false;
+        _collider.enabled = false;
+        _rigidbody.useGravity = false;
         // 잔여 몬스터 카운트 감소
 
         StartCoroutine(WaitDeadAnimation());
@@ -75,13 +81,10 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     
     public void TakeDamage(int damage)
     {
-        Debug.Log($"데미지 : {damage}");
         _monsterData.CurrentHealth.Value -= damage;
 
-        Debug.Log($"남은 체력 : {_monsterData.CurrentHealth.Value}");
         if (_monsterData.CurrentHealth.Value <= 0)
         {
-            Debug.Log("죽음");
             Dead();
         }
     }
