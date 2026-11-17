@@ -18,13 +18,11 @@ public class HitBox : MonoBehaviour
     {
         if (!_targetLayerMask.Contains(other))
         {
-            Debug.Log("LayerMask 아님");
             return;
         }
         
         if (!HitTargets.Add(other))
         {
-            Debug.Log("hitTarget 있음");
             return;
         }
         

@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void Shoot()
     {
         _isCool = true;
-        Debug.Log("Shoot");
         
         // TODO 임시 테스트용 발사
         GameObject obj = Instantiate(_projectilePrefab, _muzzlePoint.position, _muzzlePoint.rotation);
