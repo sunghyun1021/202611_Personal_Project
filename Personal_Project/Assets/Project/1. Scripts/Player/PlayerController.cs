@@ -17,12 +17,15 @@ public class PlayerController : MonoBehaviour, IDamageable
     private PlayerInputSystem _playerInputSystem;
     private WaitForSeconds _waitForShoot;
     private WaitForSeconds _waitForInvincibleTime;
+    private Collider _collider;
     private int _remainDamage;
     private bool _isCool;
     private bool _canHit;
     
     public event Action OnPlayerDead;
     public GameObject GameObject { get => gameObject; }
+    public Transform Transform { get => transform; }
+    public Animator PlayerAnimator => _playerAnimator;
     
     // ---------- Event Method ----------
     
@@ -51,6 +54,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _playerData = GetComponent<PlayerData>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInputSystem = GetComponent<PlayerInputSystem>();
+        _collider = GetComponent<Collider>();
     }
     
     private void Init()
@@ -58,6 +62,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         _waitForShoot =  new WaitForSeconds(_shootCoolTime);
         _waitForInvincibleTime = new WaitForSeconds(_invincibleTime);
         _canHit = true;
+        _collider.enabled = true;
     }
 
     private void Shoot()
@@ -89,6 +94,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     
     public void TakeDamage(int damage)
     {
+        Debug.Log($"{damage} 맞음");
         if (_canHit)
         {
             if (_playerData.CurrentShield.Value > 0)
@@ -112,10 +118,13 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (_playerData.CurrentHealth.Value <= 0)
             {
                 Debug.Log("플레이어 사망");
+                _playerAnimator.SetTrigger("Dead");
+                _collider.enabled = false;
                 OnPlayerDead?.Invoke();
             }
             else
             {
+                Debug.Log("무적임");
                 _canHit = false;
                 StartCoroutine(CarculateInvincibleTime());
             }

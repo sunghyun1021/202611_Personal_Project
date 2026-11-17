@@ -13,15 +13,17 @@ public partial class AttackAction : Action
 
     protected override Status OnStart()
     {
+        AttackType.Value.StartAttack();
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        AttackType.Value.StartAttack();
-        
+        if (AttackType.Value.IsAttacking)
+        {
+            return Status.Running;
+        }
         return Status.Success;
     }
-    
 }
 

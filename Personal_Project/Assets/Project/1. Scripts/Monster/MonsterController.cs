@@ -16,6 +16,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private Rigidbody _rigidbody;
     
     public GameObject GameObject { get => gameObject; }
+    public Transform Transform { get => transform; }
     public ObjectPool Source { get; set; }
     
     
@@ -34,6 +35,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
         _monsterData = GetComponent<MonsterData>();
         _behaviorAgent = GetComponent<BehaviorGraphAgent>();
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponentInChildren<Animator>(); 
     }
 
     private void Init()
@@ -41,6 +43,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
         if (_attackType == null) _attackType = GetComponent<AttackBase>();
         _behaviorAgent.SetVariableValue("player", _playerTransform);
         _behaviorAgent.SetVariableValue("attackType", _attackType);
+        _behaviorAgent.SetVariableValue("animator", _animator);
         _attackType.PlayerTransform = _playerTransform;
     }
 
@@ -65,8 +68,8 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     public void Dead()
     {
         _monsterData.OnDead?.Invoke(this);
-     
-        // TODO 애니메이션 실행, 잔여 몬스터 카운트 감소
+        _animator.SetTrigger("Dead");
+        // 잔여 몬스터 카운트 감소
         
         ReturnToPool();
     }

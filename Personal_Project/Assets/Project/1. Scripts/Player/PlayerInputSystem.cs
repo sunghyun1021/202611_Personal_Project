@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputSystem : MonoBehaviour
 {
     private PlayerControls _controls;
+    private PlayerController _playercontroller;
     
     [HideInInspector] public bool IsDashed;
     [HideInInspector] public bool IsShootKeyPressed; 
@@ -14,18 +15,24 @@ public class PlayerInputSystem : MonoBehaviour
 
     // ---------- Event Method ----------
 
-    private void Awake() => _controls = new PlayerControls();
-    
+    private void Awake()
+    {
+        _controls = new PlayerControls();
+        _playercontroller = GetComponent<PlayerController>();
+    }
+
     private void OnEnable()
     {
         _controls.Player.Enable();
         BindInputEvents();
+        _playercontroller.OnPlayerDead += OnPlayerDead;
     }
 
     private void OnDisable()
     {
         UnBindInputEvents();
         _controls.Player.Disable();
+        _playercontroller.OnPlayerDead -= OnPlayerDead;
     }
 
     // ----------------------------------
@@ -57,13 +64,11 @@ public class PlayerInputSystem : MonoBehaviour
         Debug.Log($"IsShootKeyPressed : {IsShootKeyPressed }");
     }
 
-    // private void OnShootStop(InputAction.CallbackContext context)
-    // {
-    //     IsShoot = false;
-    // }
+    private void OnPlayerDead()
+    {
+        _controls.Player.Disable();
+    }
 
-    // ---------- Event Binding ----------
-    
     private void BindInputEvents()
     {
         _controls.Player.Test.started += OnTest;
