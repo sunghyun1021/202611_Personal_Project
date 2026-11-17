@@ -2396,10 +2396,10 @@ MonoBehaviour:
   _settingUI: {fileID: 115739911}
   _creditUI: {fileID: 480095389}
   _gameStartBtn: {fileID: 1941159661}
-  _onSettingsBtn: {fileID: 0}
-  _offSettingsBtn: {fileID: 0}
-  _onCreditBtn: {fileID: 0}
-  _offCreditBtn: {fileID: 0}
+  _onSettingsBtn: {fileID: 407957226}
+  _offSettingsBtn: {fileID: 1029883196}
+  _onCreditBtn: {fileID: 354572821}
+  _offCreditBtn: {fileID: 1152927416}
   _exitBtn: {fileID: 286574142}
 --- !u!1 &1429473738
 GameObject:
