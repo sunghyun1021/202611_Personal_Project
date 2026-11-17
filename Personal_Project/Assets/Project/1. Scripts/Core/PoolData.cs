@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public struct PoolData
 {
-    [Header("소환할 프리팹 타입")] 
+    [Header("소환할 타입")] 
     public PoolableType Type;
     
     [Header("소환할 개수")]

@@ -17,12 +17,15 @@ public class PlayerController : MonoBehaviour, IDamageable
     private PlayerInputSystem _playerInputSystem;
     private WaitForSeconds _waitForShoot;
     private WaitForSeconds _waitForInvincibleTime;
+    private Collider _collider;
     private int _remainDamage;
     private bool _isCool;
     private bool _canHit;
     
     public event Action OnPlayerDead;
     public GameObject GameObject { get => gameObject; }
+    public Transform Transform { get => transform; }
+    public Animator PlayerAnimator => _playerAnimator;
     
     // ---------- Event Method ----------
     
@@ -39,7 +42,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         if (_playerInputSystem.IsTestKeyPressed)
         {
-            TakeDamage(20);
+            FlowManager.Instance.SpawnMonster();
             _playerInputSystem.IsTestKeyPressed = false;
         }
     }
@@ -51,6 +54,9 @@ public class PlayerController : MonoBehaviour, IDamageable
         _playerData = GetComponent<PlayerData>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInputSystem = GetComponent<PlayerInputSystem>();
+        _collider = GetComponent<Collider>();
+
+        GameManager.Instance.Player = this;
     }
     
     private void Init()
@@ -58,12 +64,21 @@ public class PlayerController : MonoBehaviour, IDamageable
         _waitForShoot =  new WaitForSeconds(_shootCoolTime);
         _waitForInvincibleTime = new WaitForSeconds(_invincibleTime);
         _canHit = true;
+        _collider.enabled = true;
     }
 
     private void Shoot()
     {
         _isCool = true;
-        Instantiate(_projectilePrefab, _muzzlePoint.position, _muzzlePoint.rotation);
+        Debug.Log("Shoot");
+        
+        // TODO 임시 테스트용 발사
+        GameObject obj = Instantiate(_projectilePrefab, _muzzlePoint.position, _muzzlePoint.rotation);
+
+        if (obj.TryGetComponent(out Projectile projectile))
+        {
+            projectile.Damage = 10;
+        }
         StartCoroutine(CarculateShootTime());
     }
 
@@ -103,7 +118,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
             if (_playerData.CurrentHealth.Value <= 0)
             {
-                Debug.Log("플레이어 사망");
+                _playerAnimator.SetTrigger("Dead");
+                _collider.enabled = false;
                 OnPlayerDead?.Invoke();
             }
             else

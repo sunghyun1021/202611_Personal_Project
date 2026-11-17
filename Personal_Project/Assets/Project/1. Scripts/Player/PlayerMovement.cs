@@ -4,8 +4,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float DepthFromCamera;
-    [SerializeField] private Animator _playerAnimator;
     
+    private PlayerController _playerController;
+    private Animator _playerAnimator;
     private PlayerData _playerData;
     private Rigidbody _rigidbody;
     private PlayerInputSystem _playerInput;
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         _playerData = GetComponent<PlayerData>();
         _playerInput = GetComponent<PlayerInputSystem>();
         _rigidbody = GetComponent<Rigidbody>();
+        _playerController = GetComponent<PlayerController>();
     }
 
     private void Init()
@@ -47,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         _waitForSeconds = new WaitForSeconds(_playerData.DashCoolTime);
         _canDash = true;
         _isFacingRight = true;
+        _playerAnimator = _playerController.PlayerAnimator;
     }
 
     private void Move()
