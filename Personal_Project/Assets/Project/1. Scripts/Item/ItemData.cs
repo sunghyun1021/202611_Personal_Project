@@ -4,10 +4,10 @@ public class ItemData : MonoBehaviour
 {
     [SerializeField] private ItemSO _itemSO;
 
+    public ItemType ItemType;
     public string Name;
     public string Description;
     public Sprite Icon;
-    public ItemType ItemType;
     public int WidthSize;
     public int HeightSize;
     
@@ -19,10 +19,10 @@ public class ItemData : MonoBehaviour
 
     private void InitData()
     {
+        ItemType = _itemSO.itemtype;
         Name = _itemSO.name;
         Description = _itemSO.description;
         Icon = _itemSO.icon;
-        ItemType = _itemSO.itemtype;
         WidthSize = _itemSO.widthSize;
         HeightSize = _itemSO.heightSize;
     }
