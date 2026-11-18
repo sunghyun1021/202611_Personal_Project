@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Start() => Init();
     
+    
     private void Update()
     {
         if (_playerInputSystem.IsShootKeyPressed && !_isCool)
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             Shoot();
         }
 
+        
         if (_playerInputSystem.IsTestKeyPressed)
         {
             FlowManager.Instance.SpawnMonster();
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
     // ----------------------------------
-    
+
     private void CacheComponents()
     {
         _playerData = GetComponent<PlayerData>();
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         GameManager.Instance.Player = this;
     }
-    
+
     private void Init()
     {
         _waitForShoot =  new WaitForSeconds(_shootCoolTime);
