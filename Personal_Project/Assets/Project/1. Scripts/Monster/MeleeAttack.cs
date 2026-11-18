@@ -5,9 +5,7 @@ public class MeleeAttack : AttackBase
 {
     private float _elapsedTime;
     private float _animationTime;
-
     
-        
     public override void StartAttack()
     {
         _animator.SetTrigger("Attack");

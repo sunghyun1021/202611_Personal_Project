@@ -25,14 +25,15 @@ public class PlayerInputSystem : MonoBehaviour
     {
         _controls.Player.Enable();
         BindInputEvents();
-        _playercontroller.OnPlayerDead += OnPlayerDead;
+        if(_playercontroller != null) _playercontroller.OnPlayerDead += OnPlayerDead;
     }
 
     private void OnDisable()
     {
         UnBindInputEvents();
         _controls.Player.Disable();
-        _playercontroller.OnPlayerDead -= OnPlayerDead;
+        
+        if(_playercontroller != null) _playercontroller.OnPlayerDead -= OnPlayerDead;
     }
 
     // ----------------------------------

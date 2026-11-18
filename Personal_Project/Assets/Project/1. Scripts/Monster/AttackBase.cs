@@ -7,9 +7,8 @@ public abstract class AttackBase : MonoBehaviour
     [SerializeField] protected Animator _animator;
     
     public Transform PlayerTransform;
-    
     public bool IsAttacking;
-
+    
     private void Awake()
     {
         _monsterData = GetComponent<MonsterData>();

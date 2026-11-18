@@ -1523,6 +1523,7 @@ GameObject:
   - component: {fileID: 1061091076}
   - component: {fileID: 1061091078}
   - component: {fileID: 1061091077}
+  - component: {fileID: 1061091079}
   m_Layer: 5
   m_Name: InventoryGrid
   m_TagString: Untagged
@@ -1587,7 +1588,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 384}
+  m_SizeDelta: {x: 640, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061091077
 MonoBehaviour:
@@ -1625,6 +1626,21 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 10
+--- !u!114 &1061091079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061091075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17542b085be529d42ba07f2e1729e7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputSystem
+  IsDashed: 0
+  IsShootKeyPressed: 0
+  IsTestKeyPressed: 0
 --- !u!1 &1205276263
 GameObject:
   m_ObjectHideFlags: 0
