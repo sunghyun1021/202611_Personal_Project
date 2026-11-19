@@ -131,6 +131,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "833abe50-f3ac-4629-ba1d-0afcac9e6d60",
+            "actions": [
+                {
+                    "name": "MouseAim",
+                    "type": "Value",
+                    "id": "bf98282c-6794-4aa1-9484-b8d39d395933",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "GrabItem",
+                    "type": "Button",
+                    "id": "6bd0f710-ca5c-43fd-9fa2-1260111cdb63",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "838e907b-6f48-435e-a4b6-2f9e1e1dc22a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";PC",
+                    "action": "MouseAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4ba861aa-4a5d-4152-98d6-c8b3677c388b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";PC",
+                    "action": "GrabItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
