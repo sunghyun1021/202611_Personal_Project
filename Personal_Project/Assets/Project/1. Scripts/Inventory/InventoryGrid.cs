@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InventoryGrid : MonoBehaviour, IPointerEnterHandler,IPointerExitHandler
@@ -31,8 +32,9 @@ public class InventoryGrid : MonoBehaviour, IPointerEnterHandler,IPointerExitHan
         {
             Debug.Log(GetGridPoint(_playerInputSystem.MousePosition));
         }
+        
     }
-
+    
     // ----------------------------------
     
     private void CacheComponents()
