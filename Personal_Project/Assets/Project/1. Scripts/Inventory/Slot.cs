@@ -22,6 +22,6 @@ public class Slot :MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_rectTransform.TransformPoint(_rectTransform.rect.center));
+        //Debug.Log(_rectTransform.TransformPoint(_rectTransform.rect.center));
     }
 }   
