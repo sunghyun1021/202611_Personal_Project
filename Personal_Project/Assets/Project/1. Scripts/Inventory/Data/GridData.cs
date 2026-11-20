@@ -3,41 +3,36 @@ using UnityEngine;
 
 public class GridData
 {
-    private int _maxWidth;
-    private int _maxHeight;
-
-    private bool[,] _isActive;
     private ItemInstance[,] _cells;
     private List<ItemInstance> _items;
+    private bool[,] _isActive;
+    
+    public int MaxWidth;
+    public int MaxHeight;
 
-    private GridData(int maxWidth, int maxHeight)
+    public GridData(int maxWidth, int maxHeight)
     {
-        _maxWidth = maxWidth;
-        _maxHeight = maxHeight;
-        _isActive[_maxWidth, _maxHeight] = true;
-        _cells = new ItemInstance[_maxWidth, _maxHeight];
+        MaxWidth = maxWidth;
+        MaxHeight = maxHeight;
+        _isActive[MaxWidth, MaxHeight] = true;
+        _cells = new ItemInstance[MaxWidth, MaxHeight];
         _items = new List<ItemInstance>();
     }
     
     // ---------- private Method ----------
     
+    // 배열 내에 있는가?
     private bool IsInside(Vector2Int target)
     {
         if (target.x < 0) return false;
-        if (target.x > _maxWidth) return false;
+        if (target.x > MaxWidth) return false;
         if (target.y < 0) return false;
-        if (target.y > _maxHeight) return false;
-
-        return true;
-    }
-
-    private bool IsActive(Vector2Int target)
-    {
-        if (!_isActive[target.x, target.y]) return false;
+        if (target.y > MaxHeight) return false;
 
         return true;
     }
     
+    // 배치할 수 있는가?
     private bool CanPlace(ItemInstance item, Vector2Int target)
     {
         for (int i = 0; i < item.Data.ItemShape.Count; i++)
@@ -51,18 +46,6 @@ public class GridData
         }
 
         return true;
-    }
-    
-    private void RemoveItem(ItemInstance item)
-    {
-        for (int i = 0; i < item.Data.ItemShape.Count; i++)
-        {
-            Vector2Int targetPos = item.PositionInGrid + item.Data.ItemShape[i];
-            
-            _cells[targetPos.x, targetPos.y] = null;
-        }
-        
-        _items.Remove(item);
     }
     
     private void RePlaceItem(ItemInstance item, Vector2Int target)
@@ -79,8 +62,16 @@ public class GridData
     
     // ---------- public Method ----------
     
+    // 활성화되어있는가?
+    public bool IsActive(Vector2Int target)
+    {
+        if (!IsInside(target)) return false;
+        if (!_isActive[target.x, target.y]) return false;
+
+        return true;
+    }
     
-    private ItemInstance GetItemAt(Vector2Int target)
+    public ItemInstance GetItemAt(Vector2Int target)
     {
         if (!IsInside(target)) return null;
         if (!IsActive(target)) return null;
@@ -104,6 +95,18 @@ public class GridData
         }
         
         _items.Add(item);
+    }
+    
+    public void RemoveItem(ItemInstance item)
+    {
+        for (int i = 0; i < item.Data.ItemShape.Count; i++)
+        {
+            Vector2Int targetPos = item.PositionInGrid + item.Data.ItemShape[i];
+            
+            _cells[targetPos.x, targetPos.y] = null;
+        }
+        
+        _items.Remove(item);
     }
     
     public void SetActiveCell(Vector2Int target)

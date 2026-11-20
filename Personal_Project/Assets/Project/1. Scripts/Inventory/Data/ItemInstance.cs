@@ -19,7 +19,7 @@ public class ItemInstance : MonoBehaviour
 
     private void CacheComponents()
     {
-        Data = new  ItemData(_itemSO);
+        Data = new ItemData(_itemSO);
         RectTransform =  GetComponent<RectTransform>();
     }
 
