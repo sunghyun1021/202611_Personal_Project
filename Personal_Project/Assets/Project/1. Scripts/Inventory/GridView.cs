@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -150,10 +151,11 @@ public class GridView : MonoBehaviour
         
         _item = null;
     }
-    
-    public void OnPointerUp(PointerEventData eventData)
+
+    public List<Vector2Int> FindCanActiveCell()
     {
-        
-        _isPointerClick = false;
+        _gridData.CheckCanActive(_gridData.ActiveCells);
+
+        return _gridData.CanActiveCells;
     }
 }

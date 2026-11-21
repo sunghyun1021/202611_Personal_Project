@@ -138,7 +138,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""OnTest"",
+                    ""name"": ""OnTestKey"",
                     ""type"": ""Button"",
                     ""id"": ""d4fdfc05-fe94-4bd7-a087-6595d9876a9a"",
                     ""expectedControlType"": """",
@@ -231,8 +231,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OnTest"",
+                    ""groups"": "";PC"",
+                    ""action"": ""OnTestKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -302,7 +302,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_MouseAim = m_Player.FindAction("MouseAim", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
-        m_Player_OnTest = m_Player.FindAction("OnTest", throwIfNotFound: true);
+        m_Player_OnTestKey = m_Player.FindAction("OnTestKey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_MouseAim = m_UI.FindAction("MouseAim", throwIfNotFound: true);
@@ -393,7 +393,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseAim;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Test;
-    private readonly InputAction m_Player_OnTest;
+    private readonly InputAction m_Player_OnTestKey;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -426,9 +426,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Test => m_Wrapper.m_Player_Test;
         /// <summary>
-        /// Provides access to the underlying input action "Player/OnTest".
+        /// Provides access to the underlying input action "Player/OnTestKey".
         /// </summary>
-        public InputAction @OnTest => m_Wrapper.m_Player_OnTest;
+        public InputAction @OnTestKey => m_Wrapper.m_Player_OnTestKey;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -470,9 +470,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Test.started += instance.OnTest;
             @Test.performed += instance.OnTest;
             @Test.canceled += instance.OnTest;
-            @OnTest.started += instance.OnOnTest;
-            @OnTest.performed += instance.OnOnTest;
-            @OnTest.canceled += instance.OnOnTest;
+            @OnTestKey.started += instance.OnOnTestKey;
+            @OnTestKey.performed += instance.OnOnTestKey;
+            @OnTestKey.canceled += instance.OnOnTestKey;
         }
 
         /// <summary>
@@ -499,9 +499,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Test.started -= instance.OnTest;
             @Test.performed -= instance.OnTest;
             @Test.canceled -= instance.OnTest;
-            @OnTest.started -= instance.OnOnTest;
-            @OnTest.performed -= instance.OnOnTest;
-            @OnTest.canceled -= instance.OnOnTest;
+            @OnTestKey.started -= instance.OnOnTestKey;
+            @OnTestKey.performed -= instance.OnOnTestKey;
+            @OnTestKey.canceled -= instance.OnOnTestKey;
         }
 
         /// <summary>
@@ -698,12 +698,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTest(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "OnTest" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "OnTestKey" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnOnTest(InputAction.CallbackContext context);
+        void OnOnTestKey(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

@@ -52,7 +52,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OnTest",
+                    "name": "OnTestKey",
                     "type": "Button",
                     "id": "d4fdfc05-fe94-4bd7-a087-6595d9876a9a",
                     "expectedControlType": "",
@@ -145,8 +145,8 @@
                     "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "OnTest",
+                    "groups": ";PC",
+                    "action": "OnTestKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

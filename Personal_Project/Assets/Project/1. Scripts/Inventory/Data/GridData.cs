@@ -5,11 +5,12 @@ public class GridData
 {
     private ItemInstance[,] _itemInCell;
     private List<ItemInstance> _items;
-    private List<Vector2Int> _ActiveCells;
     private bool[,] _isActive;
     
     public int MaxWidth;
     public int MaxHeight;
+    public List<Vector2Int> ActiveCells;
+    public List<Vector2Int> CanActiveCells;
 
     public GridData(int maxWidth, int maxHeight)
     {
@@ -17,7 +18,8 @@ public class GridData
         MaxHeight = maxHeight;
         _itemInCell = new ItemInstance[maxWidth, maxHeight];
         _items = new List<ItemInstance>();
-        _ActiveCells = new List<Vector2Int>();
+        ActiveCells = new List<Vector2Int>();
+        CanActiveCells = new List<Vector2Int>();
         _isActive = new bool[maxWidth, maxHeight];
         
         for (int i = 0; i < maxWidth; i++)
@@ -30,7 +32,7 @@ public class GridData
                 if (i >= 2 && i <= 5 && j >= 2 && j <= 3)
                 {
                     _isActive[i, j] = true;
-                    _ActiveCells.Add(new Vector2Int(i, j));
+                    ActiveCells.Add(new Vector2Int(i, j));
                     continue;
                 }
                 
@@ -136,23 +138,41 @@ public class GridData
         if (_isActive[target.x, target.y]) return;
         
         _isActive[target.x, target.y] = true;
-        _ActiveCells.Add(target);
+        ActiveCells.Add(target);
         Debug.Log($"{target.x}, {target.y} 활성화됨");
     }
 
-    public bool CheckActiveCell4Direction(Vector2Int target)
+    public void CheckCanActive(List<Vector2Int> activeCells)
+    {
+        for (int i = 0; i < activeCells.Count; i++)
+        {
+            CheckCanActiveCell4Direction(activeCells[i]);
+        }
+    }
+
+    public void CheckCanActiveCell4Direction(Vector2Int target)
     {
         Vector2Int addPosition = new Vector2Int(1, 0);
         
-        if (!IsActive(target + addPosition)) addPosition = new Vector2Int(0, 1);
-        else return true;
+        if (IsActive(target + addPosition)) addPosition = new Vector2Int(0, 1);
+        else
+        {
+            CanActiveCells.Add(target + addPosition);
+            return;
+        }
         
-        if (!IsActive(target + addPosition)) addPosition = new Vector2Int(-1, 0);
-        else return true;
+        if (IsActive(target + addPosition)) addPosition = new Vector2Int(-1, 0);
+        else
+        {
+            CanActiveCells.Add(target + addPosition);
+            return;
+        }
 
-        if (!IsActive(target + addPosition)) addPosition = new Vector2Int(0, -1);
-        else return true;
-
-        return false;
+        if (IsActive(target + addPosition)) addPosition = new Vector2Int(0, -1);
+        else
+        {
+            CanActiveCells.Add(target + addPosition);
+            return;
+        }
     }
 } 
