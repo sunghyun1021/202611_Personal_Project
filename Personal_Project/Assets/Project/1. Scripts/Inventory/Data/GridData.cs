@@ -5,6 +5,7 @@ public class GridData
 {
     private ItemInstance[,] _itemInCell;
     private List<ItemInstance> _items;
+    private List<Vector2Int> _ActiveCells;
     private bool[,] _isActive;
     
     public int MaxWidth;
@@ -16,6 +17,7 @@ public class GridData
         MaxHeight = maxHeight;
         _itemInCell = new ItemInstance[maxWidth, maxHeight];
         _items = new List<ItemInstance>();
+        _ActiveCells = new List<Vector2Int>();
         _isActive = new bool[maxWidth, maxHeight];
         
         for (int i = 0; i < maxWidth; i++)
@@ -28,29 +30,16 @@ public class GridData
                 if (i >= 2 && i <= 5 && j >= 2 && j <= 3)
                 {
                     _isActive[i, j] = true;
-                    Debug.Log($"활성화 칸 : {i}, {j}");
+                    _ActiveCells.Add(new Vector2Int(i, j));
                     continue;
                 }
                 
                 _isActive[i, j] = false;
-                Debug.Log($"비활성화 칸 : {i}, {j}");
             }
         }
-        _items = new List<ItemInstance>();
     }
     
     // ---------- private Method ----------
-    
-    // 배열 내에 있는가?
-    private bool IsInside(Vector2Int target)
-    {
-        if (target.x < 0) return false;
-        if (target.x >= MaxWidth) return false;
-        if (target.y < 0) return false;
-        if (target.y >= MaxHeight) return false;
-
-        return true;
-    }
     
     // 배치할 수 있는가?
     private bool CanPlace(ItemInstance item, Vector2Int target)
@@ -60,6 +49,7 @@ public class GridData
             Vector2Int targetPos = item.Data.ItemShape[i] + target;
             
             if (GetItemAt(targetPos) != null) return false;
+            if (!IsInside(target)) return false;
             if (!IsActive(targetPos)) return false;
         }
 
@@ -68,10 +58,20 @@ public class GridData
 
     // ---------- public Method ----------
     
+    // 배열 내에 있는가?
+    public bool IsInside(Vector2Int target)
+    {
+        if (target.x < 0) return false;
+        if (target.x >= MaxWidth) return false;
+        if (target.y < 0) return false;
+        if (target.y >= MaxHeight) return false;
+
+        return true;
+    }
+    
     // 활성화되어있는가?
     public bool IsActive(Vector2Int target)
     {
-        if (!IsInside(target)) return false;
         if (!_isActive[target.x, target.y]) return false;
 
         return true;
@@ -136,6 +136,23 @@ public class GridData
         if (_isActive[target.x, target.y]) return;
         
         _isActive[target.x, target.y] = true;
+        _ActiveCells.Add(target);
         Debug.Log($"{target.x}, {target.y} 활성화됨");
+    }
+
+    public bool CheckActiveCell4Direction(Vector2Int target)
+    {
+        Vector2Int addPosition = new Vector2Int(1, 0);
+        
+        if (!IsActive(target + addPosition)) addPosition = new Vector2Int(0, 1);
+        else return true;
+        
+        if (!IsActive(target + addPosition)) addPosition = new Vector2Int(-1, 0);
+        else return true;
+
+        if (!IsActive(target + addPosition)) addPosition = new Vector2Int(0, -1);
+        else return true;
+
+        return false;
     }
 } 

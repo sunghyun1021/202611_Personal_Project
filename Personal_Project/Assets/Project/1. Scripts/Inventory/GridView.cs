@@ -70,7 +70,7 @@ public class GridView : MonoBehaviour
         GameObject tempItem = Instantiate(_itemPrefab, _itemLayer);
 
         ItemInstance item = tempItem.GetComponent<ItemInstance>();
-        item.RectTransform.anchoredPosition = new Vector2(-96, 0);
+        item.RectTransform.anchoredPosition = new Vector2(-96, 60);
         
         Vector2Int itemPosition = new();
         itemPosition.x = 2;
@@ -82,7 +82,7 @@ public class GridView : MonoBehaviour
         tempItem = Instantiate(_itemPrefab, _itemLayer);
 
         item = tempItem.GetComponent<ItemInstance>();
-        item.RectTransform.anchoredPosition = new Vector2(32, 0);
+        item.RectTransform.anchoredPosition = new Vector2(32, 60);
         
         itemPosition.x = 4;
         itemPosition.y = 2;
@@ -93,8 +93,11 @@ public class GridView : MonoBehaviour
 
     private void SetActiveCell(Vector2Int position)
     {
+        if (!_gridData.IsInside(position)) return;
         if (_gridData.IsActive(position)) return;
 
+        // TODO 활성화 칸으로 이미지 변경 
+        
         _gridData.SetActiveCell(position);
     }
 
@@ -104,13 +107,11 @@ public class GridView : MonoBehaviour
     {
         float pointX = (Screen.width / 2) - (_gridTransform.sizeDelta.x / 2) + _gridTransform.anchoredPosition.x;
         float pointY = (Screen.height / 2) + (_gridTransform.sizeDelta.y / 2) + _gridTransform.anchoredPosition.y;
-
-        // TODO Debug Delete
-
+        
         _positionInGrid.x = Mathf.FloorToInt((mousePosition.x - pointX) / CellSize);
         _positionInGrid.y = Mathf.FloorToInt((pointY - mousePosition.y) / CellSize);
 
-        return _positionInGrid;
+        return _positionInGrid; 
     }
     
     public void StartItemDrag()
