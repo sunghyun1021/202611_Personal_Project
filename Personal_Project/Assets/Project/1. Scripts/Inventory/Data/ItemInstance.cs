@@ -7,8 +7,8 @@ public class ItemInstance : MonoBehaviour
     
     public ItemData Data;
     public float PrevRotation;
-    public Vector2Int PrevPosition; 
-    public Vector2Int PositionInGrid;
+    [HideInInspector] public Vector2Int PrevPosition; 
+    [HideInInspector] public Vector2Int PositionInGrid;
     public RectTransform RectTransform;
     
     // ---------- Event Method ----------
@@ -19,7 +19,7 @@ public class ItemInstance : MonoBehaviour
 
     private void CacheComponents()
     {
-        Data = new ItemData(_itemSO);
+        Data = new  ItemData(_itemSO);
         RectTransform =  GetComponent<RectTransform>();
     }
 

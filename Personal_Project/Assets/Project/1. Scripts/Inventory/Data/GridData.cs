@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GridData
 {
-    private ItemInstance[,] _cells;
+    private ItemInstance[,] _itemInCell;
     private List<ItemInstance> _items;
     private bool[,] _isActive;
     
@@ -14,8 +14,28 @@ public class GridData
     {
         MaxWidth = maxWidth;
         MaxHeight = maxHeight;
-        _isActive[MaxWidth, MaxHeight] = true;
-        _cells = new ItemInstance[MaxWidth, MaxHeight];
+        _itemInCell = new ItemInstance[maxWidth, maxHeight];
+        _items = new List<ItemInstance>();
+        _isActive = new bool[maxWidth, maxHeight];
+        
+        for (int i = 0; i < maxWidth; i++)
+        {
+            for (int j = 0; j < maxHeight; j++)
+            {
+                _itemInCell[i, j] = null;
+
+                // 초기 활성화칸 설정, 초기 아이템 설정
+                if (i >= 2 && i <= 5 && j >= 2 && j <= 3)
+                {
+                    _isActive[i, j] = true;
+                    Debug.Log($"활성화 칸 : {i}, {j}");
+                    continue;
+                }
+                
+                _isActive[i, j] = false;
+                Debug.Log($"비활성화 칸 : {i}, {j}");
+            }
+        }
         _items = new List<ItemInstance>();
     }
     
@@ -54,7 +74,7 @@ public class GridData
         {
             Vector2Int targetPos = item.Data.ItemShape[i] + target;
             
-            _cells[targetPos.x, targetPos.y] = item;
+            _itemInCell[targetPos.x, targetPos.y] = item;
         }
         
         _items.Add(item);
@@ -76,7 +96,7 @@ public class GridData
         if (!IsInside(target)) return null;
         if (!IsActive(target)) return null;
         
-        return _cells[target.x, target.y];
+        return _itemInCell[target.x, target.y];
     }
 
     public void PlaceItem(ItemInstance item, Vector2Int target)
@@ -91,7 +111,7 @@ public class GridData
         {
             Vector2Int targetPos = item.Data.ItemShape[i] + target;
             
-            _cells[targetPos.x, targetPos.y] = item;
+            _itemInCell[targetPos.x, targetPos.y] = item;
         }
         
         _items.Add(item);
@@ -103,7 +123,7 @@ public class GridData
         {
             Vector2Int targetPos = item.PositionInGrid + item.Data.ItemShape[i];
             
-            _cells[targetPos.x, targetPos.y] = null;
+            _itemInCell[targetPos.x, targetPos.y] = null;
         }
         
         _items.Remove(item);
@@ -114,6 +134,5 @@ public class GridData
         if (_isActive[target.x, target.y]) return;
         
         _isActive[target.x, target.y] = true;
-        // TODO 액티브상태 이미지로 변경
     }
 } 
