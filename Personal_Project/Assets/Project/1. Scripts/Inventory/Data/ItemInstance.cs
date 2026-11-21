@@ -11,6 +11,8 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDr
 
     private Vector2 _initialMousePosition;
     private Vector2 _initialAnchoredPosition;
+    private Vector2Int _initialGridPosition;
+    private int _cellSize;
     
     public ItemData Data;
     [HideInInspector] public Vector2 PrevPosition;
@@ -22,6 +24,8 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDr
     // ---------- Event Method ----------
 
     private void Awake() => CacheComponents();
+
+    private void Start() => Init();
     
     // ---------- private Method ----------
 
@@ -32,6 +36,11 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDr
         _itemShape = Data.ItemShape;
         _itemPositionInGrid = Data.ItemPositionInGrid;
         _gridView = InventoryManager.Instance.GridView;
+    }
+
+    private void Init()
+    {
+        _cellSize = GridView.CellSize;
     }
 
     /// <summary>
@@ -75,6 +84,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDr
     {
         _initialAnchoredPosition = RectTransform.anchoredPosition;
         _initialMousePosition = eventData.position;
+        _initialGridPosition = _gridView.GetGridPoint(eventData.position);
         _gridView.StartItemDrag();
     }
 
@@ -85,6 +95,12 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDr
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Vector2Int currentGridPosition = _gridView.GetGridPoint(eventData.position);
+        
+        float posX = _initialAnchoredPosition.x + (currentGridPosition - _initialGridPosition).x * _cellSize;
+        float posY = _initialAnchoredPosition.y - (currentGridPosition - _initialGridPosition).y * _cellSize;
+        
+        RectTransform.anchoredPosition = new Vector2(posX, posY);
         _gridView.EndItemDrag();
     }
 }

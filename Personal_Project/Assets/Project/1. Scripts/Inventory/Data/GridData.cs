@@ -45,9 +45,9 @@ public class GridData
     private bool IsInside(Vector2Int target)
     {
         if (target.x < 0) return false;
-        if (target.x > MaxWidth) return false;
+        if (target.x >= MaxWidth) return false;
         if (target.y < 0) return false;
-        if (target.y > MaxHeight) return false;
+        if (target.y >= MaxHeight) return false;
 
         return true;
     }
