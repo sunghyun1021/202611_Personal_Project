@@ -59,27 +59,13 @@ public class GridData
         {
             Vector2Int targetPos = item.Data.ItemShape[i] + target;
             
-            if (GetItemAt(targetPos) != null)
-            {
-                return false;
-            }
+            if (GetItemAt(targetPos) != null) return false;
+            if (!IsActive(targetPos)) return false;
         }
 
         return true;
     }
-    
-    private void RePlaceItem(ItemInstance item, Vector2Int target)
-    {
-        for (int i = 0; i < item.Data.ItemShape.Count; i++)
-        {
-            Vector2Int targetPos = item.Data.ItemShape[i] + target;
-            
-            _itemInCell[targetPos.x, targetPos.y] = item;
-        }
-        
-        _items.Add(item);
-    }
-    
+
     // ---------- public Method ----------
     
     // 활성화되어있는가?
@@ -99,17 +85,31 @@ public class GridData
         return _itemInCell[target.x, target.y];
     }
 
-    public void PlaceItem(ItemInstance item, Vector2Int target)
+    public bool PlaceItem(ItemInstance item, Vector2Int target)
     {
+        Debug.Log($"target : {target.x}, {target.y}");
         if (!CanPlace(item, target))
         {
-            RePlaceItem(item, item.PrevPosition);
-            return;
+            Debug.Log("불가능");
+            return false;
         }
-
+        Debug.Log("가능");
         for (int i = 0; i < item.Data.ItemShape.Count; i++)
         {
             Vector2Int targetPos = item.Data.ItemShape[i] + target;
+            
+            _itemInCell[targetPos.x, targetPos.y] = item;
+        }
+        
+        _items.Add(item);
+        return true;
+    }
+    
+    public void RePlaceItem(ItemInstance item)
+    {
+        for (int i = 0; i < item.Data.ItemShape.Count; i++)
+        {
+            Vector2Int targetPos = item.Data.ItemPositionInGrid[i];
             
             _itemInCell[targetPos.x, targetPos.y] = item;
         }
@@ -121,9 +121,11 @@ public class GridData
     {
         for (int i = 0; i < item.Data.ItemShape.Count; i++)
         {
-            Vector2Int targetPos = item.PositionInGrid + item.Data.ItemShape[i];
+            Vector2Int targetPos = item.Data.ItemPositionInGrid[i];
             
             _itemInCell[targetPos.x, targetPos.y] = null;
+            
+            Debug.Log($"할당 해제 위치 : {targetPos.x}, {targetPos.y}");
         }
         
         _items.Remove(item);
@@ -134,5 +136,6 @@ public class GridData
         if (_isActive[target.x, target.y]) return;
         
         _isActive[target.x, target.y] = true;
+        Debug.Log($"{target.x}, {target.y} 활성화됨");
     }
 } 

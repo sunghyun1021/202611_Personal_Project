@@ -9,6 +9,7 @@ public class ItemData
     public string ItemName => ItemSO.itemName;
     public Sprite ItemIcon => ItemSO.itemIcon;
     public List<Vector2Int> ItemShape;
+    public List<Vector2Int> ItemPositionInGrid = new();
 
     public ItemData(ItemSO so)
     {

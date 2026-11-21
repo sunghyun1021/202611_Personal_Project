@@ -1,15 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ItemInstance : MonoBehaviour
+public class ItemInstance : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
     [SerializeField] private ItemSO _itemSO;
+    [SerializeField] private List<Vector2Int> _itemShape;
+    [SerializeField] private List<Vector2Int> _itemPositionInGrid;
+    [SerializeField] private GridView _gridView;
+
+    private Vector2 _initialMousePosition;
+    private Vector2 _initialAnchoredPosition;
     
     public ItemData Data;
-    public float PrevRotation;
-    [HideInInspector] public Vector2Int PrevPosition; 
+    [HideInInspector] public Vector2 PrevPosition;
+    [HideInInspector] public float PrevRotation;
     [HideInInspector] public Vector2Int PositionInGrid;
-    public RectTransform RectTransform;
+    [HideInInspector] public RectTransform RectTransform;
+    
     
     // ---------- Event Method ----------
 
@@ -21,6 +29,9 @@ public class ItemInstance : MonoBehaviour
     {
         Data = new  ItemData(_itemSO);
         RectTransform =  GetComponent<RectTransform>();
+        _itemShape = Data.ItemShape;
+        _itemPositionInGrid = Data.ItemPositionInGrid;
+        _gridView = InventoryManager.Instance.GridView;
     }
 
     /// <summary>
@@ -58,5 +69,22 @@ public class ItemInstance : MonoBehaviour
         }
 
         return cells;
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        _initialAnchoredPosition = RectTransform.anchoredPosition;
+        _initialMousePosition = eventData.position;
+        _gridView.StartItemDrag();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        RectTransform.anchoredPosition = eventData.position - _initialMousePosition + _initialAnchoredPosition;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        _gridView.EndItemDrag();
     }
 }

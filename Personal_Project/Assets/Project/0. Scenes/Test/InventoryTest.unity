@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 17859154}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &17859154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -261,8 +261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 19428969}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &19428969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -352,8 +352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 68949264}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &68949264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -443,8 +443,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 78618185}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &78618185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -534,8 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 97942398}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &97942398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -625,8 +625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 127604206}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &127604206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,13 +641,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -664,99 +664,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127604203}
-  m_CullTransparentMesh: 1
---- !u!1 &146824683
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 146824684}
-  - component: {fileID: 146824687}
-  - component: {fileID: 146824686}
-  - component: {fileID: 146824685}
-  m_Layer: 5
-  m_Name: DefaultItem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &146824684
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146824683}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1381804912}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &146824685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146824683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c153bf2a1d3a0c04cb952aa96f12e87f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemInstance
-  _itemSO: {fileID: 0}
-  PrevRotation: 0
-  PrevPosition: {x: 0, y: 0}
-  PositionInGrid: {x: 0, y: 0}
-  RectTransform: {fileID: 0}
---- !u!114 &146824686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146824683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e4e9242ade9c46347bfdcb53b972f011, type: 2}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &146824687
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146824683}
   m_CullTransparentMesh: 1
 --- !u!1 &160508272
 GameObject:
@@ -906,8 +813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 208495202}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &208495202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +835,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -997,8 +904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 238951328}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &238951328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,7 +926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1088,8 +995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 273359330}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &273359330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,7 +1017,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1128,41 +1035,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273359327}
   m_CullTransparentMesh: 1
---- !u!1 &314324849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314324850}
-  m_Layer: 5
-  m_Name: ItemLayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &314324850
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314324849}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 740, y: 732}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 1}
 --- !u!1 &344080224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,8 +1086,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 344080227}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &344080227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,7 +1108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1305,8 +1177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 354678746}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &354678746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,7 +1199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1475,8 +1347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 449872775}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &449872775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,7 +1369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1566,8 +1438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 602252109}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &602252109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,7 +1460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1657,8 +1529,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 686602189}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &686602189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1679,7 +1551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1748,8 +1620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 788401855}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &788401855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1642,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1839,8 +1711,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 867897166}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &867897166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,7 +1733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1930,8 +1802,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 881219626}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &881219626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,7 +1824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2021,8 +1893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 894424453}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &894424453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,7 +1915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2112,8 +1984,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 896787410}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &896787410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2134,7 +2006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2295,8 +2167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 945389985}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &945389985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,7 +2189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2386,8 +2258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 957661607}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &957661607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2408,7 +2280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2477,8 +2349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1055197643}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1055197643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2499,7 +2371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2517,122 +2389,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055197640}
   m_CullTransparentMesh: 1
---- !u!1 &1061091075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1061091076}
-  - component: {fileID: 1061091081}
-  - component: {fileID: 1061091078}
-  - component: {fileID: 1061091079}
-  - component: {fileID: 1061091080}
-  m_Layer: 5
-  m_Name: InventoryGrid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1061091076
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061091075}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 512, y: 384}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1061091078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061091075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 64, y: 64}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 1
-  m_ConstraintCount: 8
---- !u!114 &1061091079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061091075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17542b085be529d42ba07f2e1729e7fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputSystem
-  IsDashed: 0
-  IsShootKeyPressed: 0
-  IsTestKeyPressed: 0
---- !u!222 &1061091080
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061091075}
-  m_CullTransparentMesh: 1
---- !u!114 &1061091081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061091075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1137059019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,8 +2440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1137059022}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1137059022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2706,7 +2462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2775,8 +2531,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1228021026}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1228021026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,7 +2553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2866,8 +2622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1253614637}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1253614637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2888,7 +2644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2957,8 +2713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1274647018}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1274647018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2979,7 +2735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3048,8 +2804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1295383792}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1295383792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3070,7 +2826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3139,8 +2895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1342803941}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1342803941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,7 +2917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3230,8 +2986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1343914802}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1343914802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,7 +3008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3321,8 +3077,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1348602384}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1348602384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3343,7 +3099,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3412,8 +3168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1375157124}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1375157124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3434,7 +3190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3479,8 +3235,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 146824684}
+  m_Children: []
   m_Father: {fileID: 1537787193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3539,8 +3294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1420602965}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1420602965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3561,7 +3316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3630,8 +3385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1428051553}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1428051553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3652,7 +3407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3721,8 +3476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1499881264}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1499881264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3743,7 +3498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3812,8 +3567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1523764096}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1523764096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3834,7 +3589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3864,6 +3619,7 @@ GameObject:
   - component: {fileID: 1537787192}
   - component: {fileID: 1537787191}
   - component: {fileID: 1537787190}
+  - component: {fileID: 1537787194}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3957,6 +3713,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1537787194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537787189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f1d335d0c71df4a8294c9ae10c0f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
+  _isDontDestroyOnLoad: 0
+  GridView: {fileID: 2141446478}
 --- !u!1 &1580951135
 GameObject:
   m_ObjectHideFlags: 0
@@ -4008,8 +3778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1580951138}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1580951138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4030,7 +3800,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4099,8 +3869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1592497230}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1592497230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4121,7 +3891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4190,8 +3960,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1618109481}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1618109481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4212,7 +3982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4281,8 +4051,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1627347756}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1627347756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4303,7 +4073,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4372,8 +4142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1734750705}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1734750705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4394,7 +4164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4463,8 +4233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1757098475}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1757098475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4485,7 +4255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4629,8 +4399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1814547995}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1814547995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4651,7 +4421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4720,8 +4490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1818849026}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1818849026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4742,7 +4512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4811,8 +4581,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1861884859}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1861884859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4833,7 +4603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4937,8 +4707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 1916476504}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &1916476504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,7 +4729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5028,8 +4798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 2002199828}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &2002199828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,7 +4820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5119,8 +4889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 2097863555}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &2097863555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5141,7 +4911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5210,8 +4980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellView
   _image: {fileID: 2128596075}
-  _activeSprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
-  _inactiveSprite: {fileID: -1719794084, guid: 10eea07f9bb7e1d45b9f1f58c0806c04, type: 3}
+  _activeSprite: {fileID: 1609869350, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
+  _inactiveSprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
 --- !u!114 &2128596075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5232,7 +5002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c0f8ff080d9cff4485bebaea4de577d, type: 3}
+  m_Sprite: {fileID: 665344899, guid: 586cb35f848d09242bfa6d978ddd9793, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5376,8 +5146,57 @@ MonoBehaviour:
   _maxWidth: 8
   _maxHeight: 6
   _cellLayer: {fileID: 2141446476}
-  _itemLayer: {fileID: 0}
-  _cells: []
+  _itemLayer: {fileID: 1381804912}
+  _cells:
+  - {fileID: 127604205}
+  - {fileID: 1428051552}
+  - {fileID: 1348602383}
+  - {fileID: 788401854}
+  - {fileID: 1814547994}
+  - {fileID: 344080226}
+  - {fileID: 238951327}
+  - {fileID: 19428968}
+  - {fileID: 78618184}
+  - {fileID: 1627347755}
+  - {fileID: 1253614636}
+  - {fileID: 17859153}
+  - {fileID: 68949263}
+  - {fileID: 896787409}
+  - {fileID: 894424452}
+  - {fileID: 1580951137}
+  - {fileID: 1420602964}
+  - {fileID: 2128596074}
+  - {fileID: 1499881263}
+  - {fileID: 354678745}
+  - {fileID: 1916476503}
+  - {fileID: 1818849025}
+  - {fileID: 1523764095}
+  - {fileID: 208495201}
+  - {fileID: 449872774}
+  - {fileID: 97942397}
+  - {fileID: 1734750704}
+  - {fileID: 1055197642}
+  - {fileID: 957661606}
+  - {fileID: 1295383791}
+  - {fileID: 1228021025}
+  - {fileID: 1274647017}
+  - {fileID: 945389984}
+  - {fileID: 1343914801}
+  - {fileID: 1592497229}
+  - {fileID: 1618109480}
+  - {fileID: 1375157123}
+  - {fileID: 602252108}
+  - {fileID: 1861884858}
+  - {fileID: 1757098474}
+  - {fileID: 1137059021}
+  - {fileID: 686602188}
+  - {fileID: 881219625}
+  - {fileID: 2097863554}
+  - {fileID: 867897165}
+  - {fileID: 1342803940}
+  - {fileID: 273359329}
+  - {fileID: 2002199827}
+  _itemPrefab: {fileID: 918831587887199488, guid: 996f2f278c24dbd47a1bed4c924c7a42, type: 3}
 --- !u!222 &2141446479
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5423,6 +5242,4 @@ SceneRoots:
   - {fileID: 922545022}
   - {fileID: 160508274}
   - {fileID: 1537787193}
-  - {fileID: 314324850}
   - {fileID: 445243182}
-  - {fileID: 1061091076}
