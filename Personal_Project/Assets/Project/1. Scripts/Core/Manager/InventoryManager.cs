@@ -7,10 +7,13 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
 {
     [SerializeField] private List<GameObject> _CanActiveImage;
     [SerializeField] private InputActionReference _TestAction;
+    [SerializeField] private RectTransform _storageRectTransform;
     
     private Stack<GameObject> _inactiveImageStack = new();
     private Stack<GameObject> _activeImageStack = new();
-    
+
+    public Vector2 StorageLeftTopWorldPosition;
+    public Vector2 StorageRightBottomWorldPosition;
     public GridView GridView;
     
     // ---------- Event Method ----------
@@ -31,10 +34,11 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
     {
         foreach (GameObject image in _CanActiveImage)
         {
-            Debug.Log("Stack.");
             image.SetActive(false);
             _inactiveImageStack.Push(image);
         }
+
+        CaculateStorageCorner();
     }
     
     private void BindTestEvent()
@@ -63,6 +67,19 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
                 -position.y * GridView.CellSize);
         
         _activeImageStack.Push(canActiveImage);
+    }
+
+    private void CaculateStorageCorner()
+    {
+        StorageLeftTopWorldPosition = new Vector2(
+            Screen.width / 2 - _storageRectTransform.sizeDelta.x / 2 + _storageRectTransform.anchoredPosition.x,
+            Screen.height / 2 + _storageRectTransform.sizeDelta.y / 2 + _storageRectTransform.anchoredPosition.y
+        );
+        
+        StorageRightBottomWorldPosition = new Vector2(
+            Screen.width / 2 + _storageRectTransform.sizeDelta.x / 2 + _storageRectTransform.anchoredPosition.x,
+            Screen.height / 2 - _storageRectTransform.sizeDelta.y / 2 + _storageRectTransform.anchoredPosition.y
+        );
     }
     
     // ---------- public Method ----------

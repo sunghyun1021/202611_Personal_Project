@@ -47,6 +47,8 @@ public class GridData
     
     public bool CanPlace(ItemInstance item, Vector2Int target)
     {
+        if (item.RelativeCoords.Count == 0) return false;
+        
         for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
             Vector2Int targetPos = item.RelativeCoords[i] + target;
@@ -123,8 +125,6 @@ public class GridData
             Vector2Int targetPos = item.ItemPositionInGrid[i];
             
             _itemInCell[targetPos.x, targetPos.y] = null;
-            
-           
         }
         
         _items.Remove(item);

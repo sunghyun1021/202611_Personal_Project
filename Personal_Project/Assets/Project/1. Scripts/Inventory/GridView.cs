@@ -87,6 +87,7 @@ public class GridView : MonoBehaviour
         itemPosition.y = 2;
         item.ItemPositionInGrid.Add(itemPosition);
         item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
+        item.SetIsInGrid(true);
         _gridData.PlaceItem(item, itemPosition);
         
         tempItem = Instantiate(_itemPrefab, _itemLayer);
@@ -144,11 +145,15 @@ public class GridView : MonoBehaviour
         return _positionInGrid; 
     }
     
-    public void StartItemDrag()
+    public void StartItemDrag(ItemInstance item)
     {
-        _item = _gridData.GetItemAt(_mousePosition);
-        Debug.Log(_item);
-        _gridData.RemoveItem(_item);
+        _item = item;
+        // _item = _gridData.GetItemAt(_mousePosition);
+        
+        if(_item != null && _item.IsInsideGrid)
+        {
+            _gridData.RemoveItem(_item);
+        }
     }
 
     public void PlaceItem()
@@ -164,11 +169,13 @@ public class GridView : MonoBehaviour
 
     public void RePlaceItem()
     {
+        if (_item == null || !_item.IsInsideGrid) return;
         _gridData.RePlaceItem(_item);
     }
 
     public bool CanPlaceItem()
     {
+        if (!_item) return false;
         return _gridData.PlaceItem(_item, _mousePosition);
     }
 

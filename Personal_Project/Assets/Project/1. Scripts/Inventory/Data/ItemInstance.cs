@@ -20,11 +20,15 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Vector2 _currentMousePosition;
     private Vector2 _mouseOffset;
     private Vector2 _selectedImageCellCenterOffset;
+    private Vector2 _itemLeftTopCornerOffset;
+    private Vector2 _itemRightBottomCornerOffset;
     private Vector2 _initialPosition;
     private Vector3 _initialEulerAngles;
     private bool _isDragging;
+    private bool _isInsideGrid;
     private int _cellSize;
 
+    public bool IsInsideGrid => _isInsideGrid;
     public ItemData Data;
     [HideInInspector] public Vector2 PrevPosition;
     [HideInInspector] public float PrevRotation;
@@ -72,7 +76,9 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _initialPosition = RectTransform.position;
         _initialEulerAngles = RectTransform.eulerAngles;
 
-        _gridView.StartItemDrag();
+        CalculateCorner();
+        
+        _gridView.StartItemDrag(this);
 
         int rotation = Mathf.RoundToInt(RectTransform.eulerAngles.z / 90);
         bool isSizeDeltaRotated = rotation % 2 != 0;
@@ -137,6 +143,10 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         {
             _image.color = _greenColor;
         }
+        else if (CanPlaceInStorage())
+        {
+            _image.color = _greenColor;
+        }
         else
         {
             _image.color = _redColor;
@@ -148,11 +158,20 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _isDragging = false;
         
         _image.gameObject.SetActive(false);
+        
         if (_gridView.CanPlaceItem())
         {
             Debug.Log("배치 가능");
             _gridView.PlaceItem();
             PlaceItem(eventData.position);
+            _isInsideGrid = true;
+        }
+        else if (CanPlaceInStorage())
+        {
+            _initialPosition = RectTransform.position;
+            _initialEulerAngles = RectTransform.eulerAngles;
+            RelativeCoords.Clear();
+            _isInsideGrid = false;
         }
         else
         {
@@ -169,7 +188,6 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             Screen.width / 2 - _gridView.GridTransform.sizeDelta.x / 2 + _gridView.GridTransform.anchoredPosition.x,
             Screen.height / 2 + _gridView.GridTransform.sizeDelta.y / 2 + _gridView.GridTransform.anchoredPosition.y
         );
-        Debug.Log($"leftTopGridPosition : {leftTopGridPosition}");
         
         float posX = leftTopGridPosition.x + _cellSize * _gridView.GetGridPoint(mousePosition).x + _cellSize / 2;
         float posY = leftTopGridPosition.y - _cellSize * _gridView.GetGridPoint(mousePosition).y - _cellSize / 2;
@@ -179,10 +197,9 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             posY - _selectedImageCellCenterOffset.y, 
             0
         );
-        Debug.Log($"RectTransform.position : {RectTransform.position}");
     }
 
-private void Rotate(InputAction.CallbackContext context)
+    private void Rotate(InputAction.CallbackContext context)
     {
         if (!_isDragging) return;
 
@@ -203,5 +220,47 @@ private void Rotate(InputAction.CallbackContext context)
         {
             RelativeCoords[i] = new Vector2Int(-RelativeCoords[i].y, RelativeCoords[i].x);
         }
+    }
+
+    private void CalculateCorner()
+    {
+        float posX = -RectTransform.sizeDelta.x / 2;
+        float posY = RectTransform.sizeDelta.y / 2;
+        
+        _itemLeftTopCornerOffset = new Vector2(posX, posY);
+        Debug.Log($"_itemLeftTopCornerOffset : {_itemLeftTopCornerOffset}");
+        
+        posX = RectTransform.sizeDelta.x / 2;
+        posY = -RectTransform.sizeDelta.y / 2;
+        
+        _itemRightBottomCornerOffset = new Vector2(posX, posY);
+        Debug.Log($"_itemRightBottomCornerOffset : {_itemRightBottomCornerOffset}");
+    }
+
+    private bool CanPlaceInStorage()
+    {
+        float posX = RectTransform.position.x + _itemLeftTopCornerOffset.x;
+        float posY = RectTransform.position.y + _itemLeftTopCornerOffset.y;
+
+        Vector2 itemLeftTopCornerWorldPosition = new Vector2(posX, posY);
+
+        posX = RectTransform.position.x + _itemRightBottomCornerOffset.x;
+        posY = RectTransform.position.y + _itemRightBottomCornerOffset.y;
+
+        Vector2 itemRightBottomCornerWorldPosition = new Vector2(posX, posY);
+
+        if (InventoryManager.Instance.StorageLeftTopWorldPosition.x <= itemLeftTopCornerWorldPosition.x &&
+            InventoryManager.Instance.StorageLeftTopWorldPosition.y >= itemLeftTopCornerWorldPosition.y &&
+            InventoryManager.Instance.StorageRightBottomWorldPosition.x >= itemRightBottomCornerWorldPosition.x &&
+            InventoryManager.Instance.StorageRightBottomWorldPosition.y <= itemRightBottomCornerWorldPosition.y)
+        {
+             return true;
+        }
+        return false;
+    }
+
+    public void SetIsInGrid(bool isInGrid)
+    {
+        _isInsideGrid = isInGrid;
     }
 }
