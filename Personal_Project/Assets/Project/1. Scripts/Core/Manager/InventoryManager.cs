@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 public class InventoryManager : SingletonBehaviour<InventoryManager>
 {
     [SerializeField] private List<GameObject> _CanActiveImage;
-    
-    private PlayerInputSystem _playerInputSystem;
+    [SerializeField] private InputActionReference _TestAction;
     
     public GridView GridView;
     
@@ -15,7 +14,6 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
 
     private void Awake()
     {
-        _playerInputSystem = GetComponent<PlayerInputSystem>();
         SetSingleton();
     }
 
@@ -27,28 +25,34 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
 
     private void BindTestEvent()
     {
-        _playerInputSystem.OnTestKey.performed += DisplayerAction;
+        _TestAction.action.Enable();
+        _TestAction.action.performed += DisplayerAction;
     }
     
     private void UnBindTestEvent()
     {
-        _playerInputSystem.OnTestKey.performed -= DisplayerAction;
+        _TestAction.action.Disable();
+        _TestAction.action.performed -= DisplayerAction;
     }
 
     private void DisplayerAction(InputAction.CallbackContext context)
     {
-        Debug.Log("시작됨@@@@@@@");
         DisplayCanActiveImage(GridView.FindCanActiveCell());
     }
     
-    private void DisplayCanActiveImage(List<Vector2Int> CanActivelist)
+    private void DisplayCanActiveImage(HashSet<Vector2Int> CanActivelist)
     {
-        for (int i = 0; i < CanActivelist.Count; i++)
+        Debug.Log($"_CanActiveImage.Count : {_CanActiveImage.Count}");
+
+        int count = 0;
+        foreach (Vector2Int targetPos in CanActivelist)
         {
-            _CanActiveImage[i].SetActive(true);
-            _CanActiveImage[i].transform.position = 
-                new Vector2(0 * GridView.CellSize,
-                    0 * GridView.CellSize);
+            _CanActiveImage[count].gameObject.SetActive(true);
+            _CanActiveImage[count].GetComponent<RectTransform>().anchoredPosition =
+                new Vector2(targetPos.x * GridView.CellSize,
+                    -targetPos.y * GridView.CellSize);
+            
+            count++;
         }
     }
     
@@ -56,7 +60,7 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
     {
         for (int i = 0; i < _CanActiveImage.Count; i++)
         {
-            _CanActiveImage[i].SetActive(false);
+            _CanActiveImage[i].gameObject.SetActive(false);
         }
     }
 }
