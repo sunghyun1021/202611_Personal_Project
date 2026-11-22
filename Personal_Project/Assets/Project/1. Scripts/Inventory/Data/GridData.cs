@@ -75,7 +75,7 @@ public class GridData
     
     // 활성화되어있는가?
     public bool IsActive(Vector2Int target)
-    {
+    { 
         if (!_isActive[target.x, target.y]) return false;
 
         return true;
@@ -129,7 +129,7 @@ public class GridData
             
             _itemInCell[targetPos.x, targetPos.y] = null;
             
-            Debug.Log($"할당 해제 위치 : {targetPos.x}, {targetPos.y}");
+           
         }
         
         _items.Remove(item);
@@ -157,10 +157,10 @@ public class GridData
         foreach (Vector2Int offset in _addPosition)
         {
             Vector2Int targetPos = target + offset;
-            if(!IsActive(targetPos))
+            
+            if(IsInside(targetPos) && !IsActive(targetPos))
             {
                 CanActiveCells.Add(targetPos);
-                Debug.Log($"인접한 비활성화Cell : {targetPos}");
             }
         }
     }

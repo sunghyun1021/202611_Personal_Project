@@ -15,6 +15,7 @@ public class GridView : MonoBehaviour
     [SerializeField] private CellView[] _cells;
     [SerializeField] private GameObject _itemPrefab;
 
+    private Dictionary<Vector2Int, CellView> _cellDic = new();
     private GridData _gridData;
     private ItemInstance _item;
     private CellView _cell;
@@ -32,11 +33,17 @@ public class GridView : MonoBehaviour
         CacheComponents();
         SetStartCellImage();
         SetStartItem();
+        CreateDictionary();
     }
 
     private void Update()
     {
         _mousePosition = GetGridPoint(Mouse.current.position.ReadValue());
+
+        if (Mouse.current.leftButton.isPressed)
+        {
+            SetActiveCell(_mousePosition);
+        }
     }
 
     // ---------- private Method ----------
@@ -93,14 +100,34 @@ public class GridView : MonoBehaviour
         _gridData.PlaceItem(item, itemPosition);
     }
 
+    private void CreateDictionary()
+    {
+        for (int i = 0; i < _cells.Length; i++)
+        {
+            int y = i / _maxWidth;
+            int x = i % _maxWidth;
+            
+            _cellDic[new Vector2Int(x, y)] = _cells[i];
+        }
+    }
+
     private void SetActiveCell(Vector2Int position)
     {
         if (!_gridData.IsInside(position)) return;
         if (_gridData.IsActive(position)) return;
-
-        // TODO 활성화 칸으로 이미지 변경 
+        if(!_gridData.CanActiveCells.Contains(position)) return;
         
+        // TODO 활성화 칸으로 이미지 변경 
+        _cellDic[position].SetActive(true);
+        _gridData.CanActiveCells.Remove(position);
+
         _gridData.SetActiveCell(position);
+        
+        InventoryManager.Instance.UnDisplayCanActiveImage();
+        
+        _gridData.CheckCanActiveCell4Direction(position);
+        
+        InventoryManager.Instance.DisplayCanActiveImage(_gridData.CanActiveCells);
     }
 
     // ---------- public Method ----------
