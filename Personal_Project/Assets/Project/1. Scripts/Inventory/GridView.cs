@@ -99,6 +99,7 @@ public class GridView : MonoBehaviour
         itemPosition.y = 2;
         item.ItemPositionInGrid.Add(itemPosition);
         item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
+        item.SetIsInGrid(true);
         _gridData.PlaceItem(item, itemPosition);
     }
 
