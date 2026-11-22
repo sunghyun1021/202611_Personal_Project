@@ -6,11 +6,13 @@ public class GridData
     private ItemInstance[,] _itemInCell;
     private List<ItemInstance> _items;
     private bool[,] _isActive;
+    private Vector2Int[] _addPosition = {Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left};
     
     public int MaxWidth;
     public int MaxHeight;
-    public List<Vector2Int> ActiveCells;
-    public List<Vector2Int> CanActiveCells;
+    public HashSet<Vector2Int> ActiveCells;
+    public HashSet<Vector2Int> CanActiveCells; 
+    
 
     public GridData(int maxWidth, int maxHeight)
     {
@@ -18,8 +20,8 @@ public class GridData
         MaxHeight = maxHeight;
         _itemInCell = new ItemInstance[maxWidth, maxHeight];
         _items = new List<ItemInstance>();
-        ActiveCells = new List<Vector2Int>();
-        CanActiveCells = new List<Vector2Int>();
+        ActiveCells = new HashSet<Vector2Int>();
+        CanActiveCells = new HashSet<Vector2Int>();
         _isActive = new bool[maxWidth, maxHeight];
         
         for (int i = 0; i < maxWidth; i++)
@@ -46,12 +48,12 @@ public class GridData
     // 배치할 수 있는가?
     private bool CanPlace(ItemInstance item, Vector2Int target)
     {
-        for (int i = 0; i < item.Data.ItemShape.Count; i++)
+        for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
-            Vector2Int targetPos = item.Data.ItemShape[i] + target;
+            Vector2Int targetPos = item.RelativeCoords[i] + target;
             
             if (GetItemAt(targetPos) != null) return false;
-            if (!IsInside(target)) return false;
+            if (!IsInside(targetPos)) return false;
             if (!IsActive(targetPos)) return false;
         }
 
@@ -96,9 +98,9 @@ public class GridData
             return false;
         }
         Debug.Log("가능");
-        for (int i = 0; i < item.Data.ItemShape.Count; i++)
+        for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
-            Vector2Int targetPos = item.Data.ItemShape[i] + target;
+            Vector2Int targetPos = item.RelativeCoords[i] + target;
             
             _itemInCell[targetPos.x, targetPos.y] = item;
         }
@@ -109,9 +111,9 @@ public class GridData
     
     public void RePlaceItem(ItemInstance item)
     {
-        for (int i = 0; i < item.Data.ItemShape.Count; i++)
+        for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
-            Vector2Int targetPos = item.Data.ItemPositionInGrid[i];
+            Vector2Int targetPos = item.ItemPositionInGrid[i];
             
             _itemInCell[targetPos.x, targetPos.y] = item;
         }
@@ -121,9 +123,9 @@ public class GridData
     
     public void RemoveItem(ItemInstance item)
     {
-        for (int i = 0; i < item.Data.ItemShape.Count; i++)
+        for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
-            Vector2Int targetPos = item.Data.ItemPositionInGrid[i];
+            Vector2Int targetPos = item.ItemPositionInGrid[i];
             
             _itemInCell[targetPos.x, targetPos.y] = null;
             
@@ -142,37 +144,24 @@ public class GridData
         Debug.Log($"{target.x}, {target.y} 활성화됨");
     }
 
-    public void CheckCanActive(List<Vector2Int> activeCells)
+    public void CheckCanActive(HashSet<Vector2Int> activeCells)
     {
-        for (int i = 0; i < activeCells.Count; i++)
+        foreach (Vector2Int target in activeCells)
         {
-            CheckCanActiveCell4Direction(activeCells[i]);
+            CheckCanActiveCell4Direction(target);
         }
     }
 
     public void CheckCanActiveCell4Direction(Vector2Int target)
     {
-        Vector2Int addPosition = new Vector2Int(1, 0);
-        
-        if (IsActive(target + addPosition)) addPosition = new Vector2Int(0, 1);
-        else
+        foreach (Vector2Int offset in _addPosition)
         {
-            CanActiveCells.Add(target + addPosition);
-            return;
-        }
-        
-        if (IsActive(target + addPosition)) addPosition = new Vector2Int(-1, 0);
-        else
-        {
-            CanActiveCells.Add(target + addPosition);
-            return;
-        }
-
-        if (IsActive(target + addPosition)) addPosition = new Vector2Int(0, -1);
-        else
-        {
-            CanActiveCells.Add(target + addPosition);
-            return;
+            Vector2Int targetPos = target + offset;
+            if(!IsActive(targetPos))
+            {
+                CanActiveCells.Add(targetPos);
+                Debug.Log($"인접한 비활성화Cell : {targetPos}");
+            }
         }
     }
 } 

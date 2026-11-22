@@ -136,15 +136,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""OnTestKey"",
-                    ""type"": ""Button"",
-                    ""id"": ""d4fdfc05-fe94-4bd7-a087-6595d9876a9a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -224,17 +215,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Test"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""12b4a0f8-03f3-4067-8b59-8682a0eeec12"",
-                    ""path"": ""<Keyboard>/o"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";PC"",
-                    ""action"": ""OnTestKey"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -243,18 +223,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""833abe50-f3ac-4629-ba1d-0afcac9e6d60"",
             ""actions"": [
                 {
-                    ""name"": ""MouseAim"",
-                    ""type"": ""Value"",
-                    ""id"": ""bf98282c-6794-4aa1-9484-b8d39d395933"",
-                    ""expectedControlType"": ""Vector3"",
+                    ""name"": ""TestKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""82a087ff-f0a4-400f-8952-4175e707c2cd"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GrabItem"",
+                    ""name"": ""Rotate"",
                     ""type"": ""Button"",
-                    ""id"": ""6bd0f710-ca5c-43fd-9fa2-1260111cdb63"",
+                    ""id"": ""38a3472f-0d6c-4e64-8f41-4553fb847422"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -264,23 +244,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""838e907b-6f48-435e-a4b6-2f9e1e1dc22a"",
-                    ""path"": ""<Mouse>/position"",
+                    ""id"": ""7e7ee048-55c6-45b1-a31d-f52eb93f18e7"",
+                    ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
-                    ""action"": ""MouseAim"",
+                    ""action"": ""TestKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4ba861aa-4a5d-4152-98d6-c8b3677c388b"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""0020e7da-4e7e-4796-ab53-98616e5a9195"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";PC"",
-                    ""action"": ""GrabItem"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -302,11 +282,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_MouseAim = m_Player.FindAction("MouseAim", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Test = m_Player.FindAction("Test", throwIfNotFound: true);
-        m_Player_OnTestKey = m_Player.FindAction("OnTestKey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_MouseAim = m_UI.FindAction("MouseAim", throwIfNotFound: true);
-        m_UI_GrabItem = m_UI.FindAction("GrabItem", throwIfNotFound: true);
+        m_UI_TestKey = m_UI.FindAction("TestKey", throwIfNotFound: true);
+        m_UI_Rotate = m_UI.FindAction("Rotate", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -393,7 +372,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseAim;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Test;
-    private readonly InputAction m_Player_OnTestKey;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -425,10 +403,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Test".
         /// </summary>
         public InputAction @Test => m_Wrapper.m_Player_Test;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/OnTestKey".
-        /// </summary>
-        public InputAction @OnTestKey => m_Wrapper.m_Player_OnTestKey;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -470,9 +444,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Test.started += instance.OnTest;
             @Test.performed += instance.OnTest;
             @Test.canceled += instance.OnTest;
-            @OnTestKey.started += instance.OnOnTestKey;
-            @OnTestKey.performed += instance.OnOnTestKey;
-            @OnTestKey.canceled += instance.OnOnTestKey;
         }
 
         /// <summary>
@@ -499,9 +470,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Test.started -= instance.OnTest;
             @Test.performed -= instance.OnTest;
             @Test.canceled -= instance.OnTest;
-            @OnTestKey.started -= instance.OnOnTestKey;
-            @OnTestKey.performed -= instance.OnOnTestKey;
-            @OnTestKey.canceled -= instance.OnOnTestKey;
         }
 
         /// <summary>
@@ -539,8 +507,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_MouseAim;
-    private readonly InputAction m_UI_GrabItem;
+    private readonly InputAction m_UI_TestKey;
+    private readonly InputAction m_UI_Rotate;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -553,13 +521,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "UI/MouseAim".
+        /// Provides access to the underlying input action "UI/TestKey".
         /// </summary>
-        public InputAction @MouseAim => m_Wrapper.m_UI_MouseAim;
+        public InputAction @TestKey => m_Wrapper.m_UI_TestKey;
         /// <summary>
-        /// Provides access to the underlying input action "UI/GrabItem".
+        /// Provides access to the underlying input action "UI/Rotate".
         /// </summary>
-        public InputAction @GrabItem => m_Wrapper.m_UI_GrabItem;
+        public InputAction @Rotate => m_Wrapper.m_UI_Rotate;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -586,12 +554,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @MouseAim.started += instance.OnMouseAim;
-            @MouseAim.performed += instance.OnMouseAim;
-            @MouseAim.canceled += instance.OnMouseAim;
-            @GrabItem.started += instance.OnGrabItem;
-            @GrabItem.performed += instance.OnGrabItem;
-            @GrabItem.canceled += instance.OnGrabItem;
+            @TestKey.started += instance.OnTestKey;
+            @TestKey.performed += instance.OnTestKey;
+            @TestKey.canceled += instance.OnTestKey;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
         }
 
         /// <summary>
@@ -603,12 +571,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UIActions" />
         private void UnregisterCallbacks(IUIActions instance)
         {
-            @MouseAim.started -= instance.OnMouseAim;
-            @MouseAim.performed -= instance.OnMouseAim;
-            @MouseAim.canceled -= instance.OnMouseAim;
-            @GrabItem.started -= instance.OnGrabItem;
-            @GrabItem.performed -= instance.OnGrabItem;
-            @GrabItem.canceled -= instance.OnGrabItem;
+            @TestKey.started -= instance.OnTestKey;
+            @TestKey.performed -= instance.OnTestKey;
+            @TestKey.canceled -= instance.OnTestKey;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
         }
 
         /// <summary>
@@ -697,13 +665,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTest(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "OnTestKey" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnOnTestKey(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -713,18 +674,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         /// <summary>
-        /// Method invoked when associated input action "MouseAim" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "TestKey" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMouseAim(InputAction.CallbackContext context);
+        void OnTestKey(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "GrabItem" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Rotate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnGrabItem(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

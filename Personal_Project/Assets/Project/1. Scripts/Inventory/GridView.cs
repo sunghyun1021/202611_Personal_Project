@@ -15,7 +15,6 @@ public class GridView : MonoBehaviour
     [SerializeField] private CellView[] _cells;
     [SerializeField] private GameObject _itemPrefab;
 
-    private RectTransform _gridTransform;
     private GridData _gridData;
     private ItemInstance _item;
     private CellView _cell;
@@ -23,6 +22,8 @@ public class GridView : MonoBehaviour
     private Vector2Int _mousePosition;
     private Vector2Int _grabPosition;
     private bool _isPointerClick;
+    
+    public RectTransform GridTransform;
     
     // ---------- Event Method ----------
     
@@ -42,7 +43,7 @@ public class GridView : MonoBehaviour
 
     private void CacheComponents()
     {
-        _gridTransform = GetComponent<RectTransform>();
+        GridTransform = GetComponent<RectTransform>();
         _gridData = new GridData(_maxWidth, _maxHeight);
     }
 
@@ -76,8 +77,8 @@ public class GridView : MonoBehaviour
         Vector2Int itemPosition = new();
         itemPosition.x = 2;
         itemPosition.y = 2;
-        item.Data.ItemPositionInGrid.Add(itemPosition);
-        item.Data.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
+        item.ItemPositionInGrid.Add(itemPosition);
+        item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
         _gridData.PlaceItem(item, itemPosition);
         
         tempItem = Instantiate(_itemPrefab, _itemLayer);
@@ -87,8 +88,8 @@ public class GridView : MonoBehaviour
         
         itemPosition.x = 4;
         itemPosition.y = 2;
-        item.Data.ItemPositionInGrid.Add(itemPosition);
-        item.Data.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
+        item.ItemPositionInGrid.Add(itemPosition);
+        item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
         _gridData.PlaceItem(item, itemPosition);
     }
 
@@ -106,8 +107,8 @@ public class GridView : MonoBehaviour
 
     public Vector2Int GetGridPoint(Vector2 mousePosition)
     {
-        float pointX = (Screen.width / 2) - (_gridTransform.sizeDelta.x / 2) + _gridTransform.anchoredPosition.x;
-        float pointY = (Screen.height / 2) + (_gridTransform.sizeDelta.y / 2) + _gridTransform.anchoredPosition.y;
+        float pointX = (Screen.width / 2) - (GridTransform.sizeDelta.x / 2) + GridTransform.anchoredPosition.x;
+        float pointY = (Screen.height / 2) + (GridTransform.sizeDelta.y / 2) + GridTransform.anchoredPosition.y;
         
         _positionInGrid.x = Mathf.FloorToInt((mousePosition.x - pointX) / CellSize);
         _positionInGrid.y = Mathf.FloorToInt((pointY - mousePosition.y) / CellSize);
@@ -118,41 +119,32 @@ public class GridView : MonoBehaviour
     public void StartItemDrag()
     {
         _item = _gridData.GetItemAt(_mousePosition);
+        Debug.Log(_item);
         _gridData.RemoveItem(_item);
-        _item.PrevPosition = _item.RectTransform.anchoredPosition;
-        
-        _grabPosition = _mousePosition;
-        
-        for (int i = 0; i < _item.Data.ItemShape.Count; i++)
-        {
-            Vector2Int temp;        
-            temp = _item.Data.ItemPositionInGrid[i] - _grabPosition;
-            _item.Data.ItemShape[i] = temp;
-        }
     }
 
-    public void EndItemDrag()
+    public void PlaceItem()
     {
-        if (_gridData.PlaceItem(_item, _mousePosition))
+        for (int i = 0; i < _item.RelativeCoords.Count; i++)
         {
-            for (int i = 0; i < _item.Data.ItemShape.Count; i++)
-            {
-                Vector2Int temp;
-                
-                temp = _mousePosition + _item.Data.ItemShape[i];
-                _item.Data.ItemPositionInGrid[i] = temp;
-            }
+            Vector2Int temp;
+            
+            temp = _mousePosition + _item.RelativeCoords[i];
+            _item.ItemPositionInGrid[i] = temp;
         }
-        else
-        {
-            _gridData.RePlaceItem(_item);
-            _item.RectTransform.anchoredPosition = _item.PrevPosition;
-        }
-        
-        _item = null;
     }
 
-    public List<Vector2Int> FindCanActiveCell()
+    public void RePlaceItem()
+    {
+        _gridData.RePlaceItem(_item);
+    }
+
+    public bool CanPlaceItem()
+    {
+        return _gridData.PlaceItem(_item, _mousePosition);
+    }
+
+    public HashSet<Vector2Int> FindCanActiveCell()
     {
         _gridData.CheckCanActive(_gridData.ActiveCells);
 

@@ -89,9 +89,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemInstance
   _itemSO: {fileID: 11400000, guid: d8c46e95e37e13a429bcd6ba4914376c, type: 2}
-  _itemShape: []
-  _itemPositionInGrid: []
   _gridView: {fileID: 0}
+  _rotateAction: {fileID: -4345431746505675805, guid: 6ada9314513eac34c923f5e7a2474d3a, type: 3}
+  RelativeCoords:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  ItemPositionInGrid: []
+  PrevPosition: {x: 0, y: 0}
   PrevRotation: 0
   PositionInGrid: {x: 0, y: 0}
   RectTransform: {fileID: 0}

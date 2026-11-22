@@ -12,7 +12,6 @@ public class PlayerInputSystem : MonoBehaviour
     [HideInInspector] public bool IsTestKeyPressed; 
     public Vector3 MoveAxisRaw { get; private set; }
     public Vector2 MousePosition => _controls.Player.MouseAim.ReadValue<Vector2>();
-    public InputAction OnTestKey => _controls.Player.OnTestKey;
 
     // ---------- Event Method ----------
 
