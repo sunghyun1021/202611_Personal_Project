@@ -1339,7 +1339,7 @@ MonoBehaviour:
   - {fileID: 571754384}
   - {fileID: 1301170180}
   - {fileID: 120686130}
-  _itemPrefab: {fileID: 918831587887199488, guid: 996f2f278c24dbd47a1bed4c924c7a42, type: 3}
+  _itemPrefab: {fileID: 9161646330753396784, guid: 0ac08da44cb36cf46bea8c6b95396620, type: 3}
   GridTransform: {fileID: 0}
 --- !u!224 &151303517
 RectTransform:

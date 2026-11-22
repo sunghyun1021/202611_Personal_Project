@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private ItemSO _itemSO;
     [SerializeField] private GridView _gridView;
     [SerializeField] private InputActionReference _rotateAction;
+    [SerializeField] private Image _image;
+    [SerializeField] private Color _redColor;
+    [SerializeField] private Color _greenColor;
 
     public List<Vector2Int> RelativeCoords = new();
     public List<Vector2Int> ItemPositionInGrid = new();
@@ -63,6 +67,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _image.gameObject.SetActive(true);
         _isDragging = true;
         _initialPosition = RectTransform.position;
         _initialEulerAngles = RectTransform.eulerAngles;
@@ -127,12 +132,22 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _currentMousePosition = eventData.position;
 
         RectTransform.position = new Vector3(posX, posY, 0);
+
+        if(_gridView.GridData.CanPlace(this, _gridView.GetGridPoint(eventData.position)))
+        {
+            _image.color = _greenColor;
+        }
+        else
+        {
+            _image.color = _redColor;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         _isDragging = false;
         
+        _image.gameObject.SetActive(false);
         if (_gridView.CanPlaceItem())
         {
             Debug.Log("배치 가능");

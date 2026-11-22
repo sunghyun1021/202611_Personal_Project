@@ -25,6 +25,7 @@ public class GridView : MonoBehaviour
     private bool _isPointerClick;
     
     public RectTransform GridTransform;
+    public GridData GridData => _gridData;
     
     // ---------- Event Method ----------
     

@@ -42,11 +42,10 @@ public class GridData
             }
         }
     }
+
+    // ---------- public Method ----------
     
-    // ---------- private Method ----------
-    
-    // 배치할 수 있는가?
-    private bool CanPlace(ItemInstance item, Vector2Int target)
+    public bool CanPlace(ItemInstance item, Vector2Int target)
     {
         for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
@@ -59,8 +58,6 @@ public class GridData
 
         return true;
     }
-
-    // ---------- public Method ----------
     
     // 배열 내에 있는가?
     public bool IsInside(Vector2Int target)
@@ -91,13 +88,11 @@ public class GridData
 
     public bool PlaceItem(ItemInstance item, Vector2Int target)
     {
-        Debug.Log($"target : {target.x}, {target.y}");
         if (!CanPlace(item, target))
         {
-            Debug.Log("불가능");
             return false;
         }
-        Debug.Log("가능");
+        
         for (int i = 0; i < item.RelativeCoords.Count; i++)
         {
             Vector2Int targetPos = item.RelativeCoords[i] + target;
