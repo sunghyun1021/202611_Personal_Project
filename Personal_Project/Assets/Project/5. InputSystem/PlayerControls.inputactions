@@ -137,18 +137,18 @@
             "id": "833abe50-f3ac-4629-ba1d-0afcac9e6d60",
             "actions": [
                 {
-                    "name": "MouseAim",
-                    "type": "Value",
-                    "id": "bf98282c-6794-4aa1-9484-b8d39d395933",
-                    "expectedControlType": "Vector3",
+                    "name": "TestKey",
+                    "type": "Button",
+                    "id": "82a087ff-f0a4-400f-8952-4175e707c2cd",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "GrabItem",
+                    "name": "Rotate",
                     "type": "Button",
-                    "id": "6bd0f710-ca5c-43fd-9fa2-1260111cdb63",
+                    "id": "38a3472f-0d6c-4e64-8f41-4553fb847422",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -158,23 +158,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "838e907b-6f48-435e-a4b6-2f9e1e1dc22a",
-                    "path": "<Mouse>/position",
+                    "id": "7e7ee048-55c6-45b1-a31d-f52eb93f18e7",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC",
-                    "action": "MouseAim",
+                    "action": "TestKey",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4ba861aa-4a5d-4152-98d6-c8b3677c388b",
-                    "path": "<Mouse>/leftButton",
+                    "id": "0020e7da-4e7e-4796-ab53-98616e5a9195",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": ";PC",
-                    "action": "GrabItem",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

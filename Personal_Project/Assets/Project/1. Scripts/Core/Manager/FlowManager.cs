@@ -8,7 +8,9 @@ public class FlowManager : SingletonBehaviour<FlowManager>
 
     private void Awake() => SetSingleton();
     
-    // ----------------------------------
+    // ---------- private Method ----------
+    
+    // ---------- public Method ----------
 
     public void SpawnMonster()
     {
