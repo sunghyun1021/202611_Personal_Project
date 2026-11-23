@@ -1,20 +1,23 @@
 using System.Collections;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlowManager : SingletonBehaviour<FlowManager>
 {
     [SerializeField] private spawnPoint[] _spawnPoints;
     [SerializeField] private FloorSO[] _floorSOList;
     [SerializeField] private Canvas _inventoryCanvas;
+    //[SerializeField] private Image
     
     private FloorSO _currentFloorSO;
     private int _currentFloor;
     private int _spawnMonsterCount;
-    private int _remainMonsterCount;
     private bool _isSpawnWaiting;
     private PlayerControls _controls;
     private WaitForSeconds _waitForSpawnMonsterTime;
+    
+    public ObservableProperty<int> RemainMonsterCount;
     
     // ---------- Event Method ----------
 
@@ -28,7 +31,7 @@ public class FlowManager : SingletonBehaviour<FlowManager>
     private void Start()
     {
         _waitForSpawnMonsterTime = new WaitForSeconds(3f);
-        _remainMonsterCount = _currentFloorSO.spawnMonsterAmount;
+        RemainMonsterCount.Value = _currentFloorSO.spawnMonsterAmount;
     }
 
     private void Update()
@@ -69,13 +72,13 @@ public class FlowManager : SingletonBehaviour<FlowManager>
 
     private void DecreaseRemainMonsterCount(MonsterController monster)
     {
-        _remainMonsterCount--;
+        RemainMonsterCount.Value--;
         
         monster.GetComponent<MonsterData>().OnDead -= DecreaseRemainMonsterCount;
         
-        Debug.Log($"잔여 몬스터 수 : {_remainMonsterCount}");
+        Debug.Log($"잔여 몬스터 수 : {RemainMonsterCount}");
 
-        if (_remainMonsterCount <= 0)
+        if (RemainMonsterCount.Value <= 0)
         {
             UIInputSystemSet(true);
             _inventoryCanvas.gameObject.SetActive(true);

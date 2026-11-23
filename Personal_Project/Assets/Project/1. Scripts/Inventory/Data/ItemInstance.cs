@@ -10,6 +10,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private ItemSO _itemSO;
     [SerializeField] private GridView _gridView;
     [SerializeField] private InputActionReference _rotateAction;
+    [SerializeField] private Image _itemImage;
     [SerializeField] private Image _image;
     [SerializeField] private Color _redColor;
     [SerializeField] private Color _greenColor;
@@ -71,6 +72,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _itemImage.raycastTarget = false;
         _image.gameObject.SetActive(true);
         _isDragging = true;
         _initialPosition = RectTransform.position;
@@ -156,6 +158,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnEndDrag(PointerEventData eventData)
     {
         _isDragging = false;
+        _itemImage.raycastTarget = true;
         
         _image.gameObject.SetActive(false);
         

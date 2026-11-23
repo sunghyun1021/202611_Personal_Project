@@ -235,6 +235,7 @@ MonoBehaviour:
   _itemSO: {fileID: 11400000, guid: d8c46e95e37e13a429bcd6ba4914376c, type: 2}
   _gridView: {fileID: 0}
   _rotateAction: {fileID: -4345431746505675805, guid: 6ada9314513eac34c923f5e7a2474d3a, type: 3}
+  _itemImage: {fileID: 7534371785821577466}
   _image: {fileID: 4969099874049688457}
   _redColor: {r: 1, g: 0, b: 0, a: 0.078431375}
   _greenColor: {r: 0.047117233, g: 1, b: 0, a: 0.078431375}
