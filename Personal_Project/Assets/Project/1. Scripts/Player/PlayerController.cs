@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     private WaitForSeconds _waitForInvincibleTime;
     private Collider _collider;
     private int _remainDamage;
+    private float _shieldFillUpStartTime;
     private bool _isCool;
     private bool _canHit;
     
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Start() => Init();
     
-    
     private void Update()
     {
         if (_playerInputSystem.IsShootKeyPressed && !_isCool)
@@ -41,15 +41,20 @@ public class PlayerController : MonoBehaviour, IDamageable
             Shoot();
         }
 
+        if (Time.time >= _shieldFillUpStartTime)
+        {
+            ShieldFillUp();
+        }
         
         if (_playerInputSystem.IsTestKeyPressed)
         {
             FlowManager.Instance.SpawnMonster();
+            
             _playerInputSystem.IsTestKeyPressed = false;
         }
     }
 
-    // ----------------------------------
+    // ---------- private Method ----------
 
     private void CacheComponents()
     {
@@ -99,11 +104,13 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         if (_canHit)
         {
+            _shieldFillUpStartTime = Time.time + 5f;
+            
             if (_playerData.CurrentShield.Value > 0)
             {
                 if (_playerData.CurrentShield.Value - damage < 0)
                 {
-                    _remainDamage = damage - _playerData.CurrentShield.Value;
+                    _remainDamage = damage - Mathf.FloorToInt(_playerData.CurrentShield.Value);
                     _playerData.CurrentShield.Value = 0;
                     _playerData.CurrentHealth.Value -= _remainDamage;
                 }
@@ -129,5 +136,13 @@ public class PlayerController : MonoBehaviour, IDamageable
                 StartCoroutine(CarculateInvincibleTime());
             }
         }
+    }
+
+    private void ShieldFillUp()
+    {
+        if(_playerData.CurrentShield.Value <= _playerData.MaxShield.Value)
+        {
+            _playerData.CurrentShield.Value += Time.deltaTime * 10;
+        } 
     }
 }

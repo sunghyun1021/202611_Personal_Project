@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class InGameUIManager : MonoBehaviour
+public class InGameUIManager : SingletonBehaviour<InGameUIManager>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    
+    
+    // ---------- Event Method ----------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void Awake() => SetSingleton();
+
+    // ---------- private Method ----------
+
+    // ---------- public Method ----------
 }

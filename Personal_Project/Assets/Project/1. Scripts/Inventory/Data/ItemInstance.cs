@@ -228,13 +228,11 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         float posY = RectTransform.sizeDelta.y / 2;
         
         _itemLeftTopCornerOffset = new Vector2(posX, posY);
-        Debug.Log($"_itemLeftTopCornerOffset : {_itemLeftTopCornerOffset}");
         
         posX = RectTransform.sizeDelta.x / 2;
         posY = -RectTransform.sizeDelta.y / 2;
         
         _itemRightBottomCornerOffset = new Vector2(posX, posY);
-        Debug.Log($"_itemRightBottomCornerOffset : {_itemRightBottomCornerOffset}");
     }
 
     private bool CanPlaceInStorage()
