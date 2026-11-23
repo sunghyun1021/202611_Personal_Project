@@ -50,3 +50,10 @@ MonoBehaviour:
   - {fileID: 0}
   _floorSOList:
   - {fileID: 11400000, guid: dfce8d4d7c608654d8d8be8b40a6fd53, type: 2}
+  - {fileID: 11400000, guid: 4c388500acd953c4eb116dcdeed98706, type: 2}
+  - {fileID: 11400000, guid: eb9e145e536110148a53d4d8bc6f30ac, type: 2}
+  _inventoryCanvas: {fileID: 0}
+  _nextFloorButton: {fileID: 0}
+  _cantGoNextFloorText: {fileID: 0}
+  RemainMonsterCount:
+    _value: 0

@@ -43,11 +43,13 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
     
     private void BindTestEvent()
     {
+        _TestAction.action.Enable();
         _TestAction.action.performed += DisplayerAction;
     }
     
     private void UnBindTestEvent()
     {
+        _TestAction.action.Disable();
         _TestAction.action.performed -= DisplayerAction;
     }
 

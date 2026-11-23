@@ -27,6 +27,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Vector3 _initialEulerAngles;
     private bool _isDragging;
     private bool _isInsideGrid;
+    private bool _isInStorage;
     private int _cellSize;
 
     public bool IsInsideGrid => _isInsideGrid;
@@ -168,6 +169,8 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             _gridView.PlaceItem();
             PlaceItem(eventData.position);
             _isInsideGrid = true;
+            if (_isInStorage) _isInStorage = false;
+            FlowManager.Instance.StorageItemList.Remove(this);
         }
         else if (CanPlaceInStorage())
         {
@@ -175,6 +178,8 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             _initialEulerAngles = RectTransform.eulerAngles;
             RelativeCoords.Clear();
             _isInsideGrid = false;
+            _isInStorage = true;
+            FlowManager.Instance.StorageItemList.Add(this);
         }
         else
         {

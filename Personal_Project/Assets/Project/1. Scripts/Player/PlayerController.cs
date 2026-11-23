@@ -48,7 +48,12 @@ public class PlayerController : MonoBehaviour, IDamageable
         
         if (_playerInputSystem.IsTestKeyPressed)
         {
-            FlowManager.Instance.SpawnMonster();
+            
+            foreach (ItemInstance itemInstance in FlowManager.Instance.StorageItemList)
+            {
+                Debug.Log("들어옴");
+                Debug.Log(itemInstance);
+            }
             
             _playerInputSystem.IsTestKeyPressed = false;
         }

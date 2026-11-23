@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class FlowManager : SingletonBehaviour<FlowManager>
 {
     [SerializeField] private spawnPoint[] _spawnPoints;
     [SerializeField] private FloorSO[] _floorSOList;
     [SerializeField] private Canvas _inventoryCanvas;
-    //[SerializeField] private Image
+    [SerializeField] private Button _nextFloorButton;
+    [SerializeField] private GameObject _cantGoNextFloorText;
     
     private FloorSO _currentFloorSO;
     private int _currentFloor;
@@ -16,25 +20,62 @@ public class FlowManager : SingletonBehaviour<FlowManager>
     private bool _isSpawnWaiting;
     private PlayerControls _controls;
     private WaitForSeconds _waitForSpawnMonsterTime;
-    
+
+    public HashSet<ItemInstance> StorageItemList = new();
     public ObservableProperty<int> RemainMonsterCount;
     
     // ---------- Event Method ----------
 
     private void Awake()
     {
+        _inventoryCanvas.gameObject.SetActive(false);
         SetSingleton();
         _currentFloor = 0;
         _currentFloorSO = _floorSOList[_currentFloor];
     }
 
+    private void OnEnable() => BindNextFloorButton();
+
+    private void OnDisable() => UnBindNextFloorButton();
+
     private void Start()
     {
-        _waitForSpawnMonsterTime = new WaitForSeconds(3f);
+        _waitForSpawnMonsterTime = new WaitForSeconds(4f);
         RemainMonsterCount.Value = _currentFloorSO.spawnMonsterAmount;
     }
 
     private void Update()
+    {
+        GameStart();
+    }
+
+    // ---------- private Method ----------
+
+    private void BindNextFloorButton()
+    {
+        _nextFloorButton.onClick.AddListener(GotoNextFloor);
+    }
+    
+    private void UnBindNextFloorButton()
+    {
+        _nextFloorButton.onClick.RemoveListener(GotoNextFloor);
+    }
+
+    private void UIInputSystemSet(bool active)
+    {
+        if (active)
+        {
+            _controls.UI.Enable();
+            _controls.Player.Disable();
+        }
+        else
+        {
+            _controls.UI.Disable();
+            _controls.Player.Enable();
+        }
+    }
+
+    private void GameStart()
     {
         if(!_isSpawnWaiting && _spawnMonsterCount < _currentFloorSO.spawnMonsterAmount)
         {
@@ -42,8 +83,39 @@ public class FlowManager : SingletonBehaviour<FlowManager>
         }
     }
 
-    // ---------- private Method ----------
+    private void DecreaseRemainMonsterCount(MonsterController monster)
+    {
+        RemainMonsterCount.Value--;
+        
+        monster.GetComponent<MonsterData>().OnDead -= DecreaseRemainMonsterCount;
 
+        if (RemainMonsterCount.Value <= 0)
+        {
+            UIInputSystemSet(true);
+            _inventoryCanvas.gameObject.SetActive(true);
+        }
+    }
+
+    private void GotoNextFloor()
+    {
+        // TODO 보상을 골랐는가도 검사 필요
+        if (StorageItemList.Count != 0)
+        {
+            StartCoroutine(InActiveWarningUI());
+            return;
+        }
+        
+        _currentFloor++;
+        
+        GameManager.Instance.Player.transform.position = Vector3.zero;
+        _currentFloorSO = _floorSOList[_currentFloor];
+        RemainMonsterCount.Value = _currentFloorSO.spawnMonsterAmount;
+        _spawnMonsterCount = 0;
+        
+        _inventoryCanvas.gameObject.SetActive(false);
+        UIInputSystemSet(false);
+    }
+    
     private IEnumerator WaitForSpawnMonster()
     {
         _isSpawnWaiting = true;
@@ -54,35 +126,11 @@ public class FlowManager : SingletonBehaviour<FlowManager>
         _isSpawnWaiting = false;
     }
 
-    private void UIInputSystemSet(bool active)
+    private IEnumerator InActiveWarningUI()
     {
-        if (active)
-        {
-            Debug.Log("UI 켰음");
-            _controls.UI.Enable();
-            _controls.Player.Disable();
-        }
-        else
-        {
-            Debug.Log("UI 껐음");
-            _controls.UI.Disable();
-            _controls.Player.Enable();
-        }
-    }
-
-    private void DecreaseRemainMonsterCount(MonsterController monster)
-    {
-        RemainMonsterCount.Value--;
-        
-        monster.GetComponent<MonsterData>().OnDead -= DecreaseRemainMonsterCount;
-        
-        Debug.Log($"잔여 몬스터 수 : {RemainMonsterCount}");
-
-        if (RemainMonsterCount.Value <= 0)
-        {
-            UIInputSystemSet(true);
-            _inventoryCanvas.gameObject.SetActive(true);
-        }
+        _cantGoNextFloorText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        _cantGoNextFloorText.SetActive(false);
     }
     
     // ---------- public Method ----------
