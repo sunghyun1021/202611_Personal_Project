@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Behavior;
 using UnityEngine;
+using Action = System.Action;
 
 public class MonsterController : MonoBehaviour, IPoolable, IDamageable
 {
@@ -20,7 +21,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     public GameObject GameObject { get => gameObject; }
     public Transform Transform { get => transform; }
     public ObjectPool Source { get; set; }
-    
+    public event Action OnMonsterDead;
     
     // ---------- Event Method ----------
 
@@ -55,6 +56,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     private void DataReset()
     {
         _monsterData.InitData();
+        _behaviorAgent.enabled = true;
         _collider.enabled = true;
         _rigidbody.useGravity = true;
     }
@@ -69,6 +71,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
     
     public void Dead()
     {
+        Debug.Log($"Event 날림");
         _monsterData.OnDead?.Invoke(this);
         _animator.SetTrigger("Dead");
         _behaviorAgent.enabled = false;
@@ -85,6 +88,7 @@ public class MonsterController : MonoBehaviour, IPoolable, IDamageable
 
         if (_monsterData.CurrentHealth.Value <= 0)
         {
+            Debug.Log($"몬스터 죽음");
             Dead();
         }
     }

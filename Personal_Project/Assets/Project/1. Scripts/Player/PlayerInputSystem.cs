@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputSystem : MonoBehaviour
 {
-    private PlayerControls _controls;
+    public PlayerControls _controls;
     private PlayerController _playercontroller;
-    
+
     [HideInInspector] public bool IsDashed;
-    [HideInInspector] public bool IsShootKeyPressed; 
-    [HideInInspector] public bool IsTestKeyPressed; 
+    [HideInInspector] public bool IsShootKeyPressed;
+    [HideInInspector] public bool IsTestKeyPressed;
     public Vector3 MoveAxisRaw { get; private set; }
     public Vector2 MousePosition => _controls.Player.MouseAim.ReadValue<Vector2>();
 
@@ -25,24 +25,26 @@ public class PlayerInputSystem : MonoBehaviour
     {
         _controls.Player.Enable();
         BindInputEvents();
-        if(_playercontroller != null) _playercontroller.OnPlayerDead += OnPlayerDead;
+        if (_playercontroller != null) _playercontroller.OnPlayerDead += OnPlayerDead;
     }
 
     private void OnDisable()
     {
         UnBindInputEvents();
         _controls.Player.Disable();
-        
-        if(_playercontroller != null) _playercontroller.OnPlayerDead -= OnPlayerDead;
+
+        if (_playercontroller != null) _playercontroller.OnPlayerDead -= OnPlayerDead;
     }
 
-    // ----------------------------------
+    private void Start() => FlowManager.Instance.SetPlayerControls(_controls);
+
+    // ---------- private Method ----------
 
     private void OnTest(InputAction.CallbackContext context)
     {
         IsTestKeyPressed = true;
     }
-    
+
     private void OnMove(InputAction.CallbackContext context)
     {
         Vector2 move = context.ReadValue<Vector2>();
@@ -50,7 +52,7 @@ public class PlayerInputSystem : MonoBehaviour
     }
 
     private void OnMoveStop(InputAction.CallbackContext context)
-    {   
+    {
         MoveAxisRaw = Vector3.zero;
     }
 
@@ -72,7 +74,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void BindInputEvents()
     {
         _controls.Player.Test.started += OnTest;
-        
+
         _controls.Player.Move.performed += OnMove;
         _controls.Player.Move.canceled += OnMoveStop;
 
@@ -85,12 +87,12 @@ public class PlayerInputSystem : MonoBehaviour
     private void UnBindInputEvents()
     {
         _controls.Player.Test.started -= OnTest;
-        
+
         _controls.Player.Move.performed -= OnMove;
         _controls.Player.Move.canceled -= OnMoveStop;
-        
+
         _controls.Player.Dash.started -= OnDash;
-        
+
         _controls.Player.Shoot.started -= OnShoot;
         _controls.Player.Shoot.canceled -= OnShoot;
     }
