@@ -13,7 +13,7 @@ public class GridView : MonoBehaviour
     [SerializeField] private RectTransform _cellLayer;
     [SerializeField] private RectTransform _itemLayer;
     [SerializeField] private CellView[] _cells;
-    [SerializeField] private GameObject _itemPrefab;
+    [SerializeField] private GameObject[] _itemPrefab;
 
     private Dictionary<Vector2Int, CellView> _cellDic = new();
     private GridData _gridData;
@@ -77,7 +77,7 @@ public class GridView : MonoBehaviour
 
     private void SetStartItem()
     {
-        GameObject tempItem = Instantiate(_itemPrefab, _itemLayer);
+        GameObject tempItem = Instantiate(_itemPrefab[0], _itemLayer);
 
         ItemInstance item = tempItem.GetComponent<ItemInstance>();
         item.RectTransform.anchoredPosition = new Vector2(-96, 60);
@@ -90,15 +90,17 @@ public class GridView : MonoBehaviour
         item.SetIsInGrid(true);
         _gridData.PlaceItem(item, itemPosition);
         
-        tempItem = Instantiate(_itemPrefab, _itemLayer);
+        tempItem = Instantiate(_itemPrefab[1], _itemLayer);
 
         item = tempItem.GetComponent<ItemInstance>();
-        item.RectTransform.anchoredPosition = new Vector2(32, 60);
+        item.RectTransform.anchoredPosition = new Vector2(64, 60);
         
         itemPosition.x = 4;
         itemPosition.y = 2;
         item.ItemPositionInGrid.Add(itemPosition);
         item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x, itemPosition.y + 1));
+        item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x + 1, itemPosition.y));
+        item.ItemPositionInGrid.Add(new Vector2Int(itemPosition.x + 1, itemPosition.y + 1));
         item.SetIsInGrid(true);
         _gridData.PlaceItem(item, itemPosition);
     }
