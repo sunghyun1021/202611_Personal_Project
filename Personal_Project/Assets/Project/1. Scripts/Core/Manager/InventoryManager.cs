@@ -24,6 +24,8 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
         Init();
     }
 
+    private void Start() => InActiveCanvas();
+
     private void OnEnable() => BindTestEvent();
     
     private void OnDisable() => UnBindTestEvent();
@@ -100,5 +102,10 @@ public class InventoryManager : SingletonBehaviour<InventoryManager>
             _inactiveImageStack.Push(image);
         }
         _activeImageStack.Clear();
+    }
+
+    private void InActiveCanvas()
+    {
+        gameObject.SetActive(false);
     }
 }

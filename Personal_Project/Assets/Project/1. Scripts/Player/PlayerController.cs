@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     
     private void Update()
     {
-        if (_playerInputSystem.IsShootKeyPressed && !_isCool)
+        if (_playerInputSystem.IsShootKeyPressed)
         {
             Shoot();
         }
@@ -49,11 +49,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         if (_playerInputSystem.IsTestKeyPressed)
         {
             
-            foreach (ItemInstance itemInstance in FlowManager.Instance.StorageItemList)
-            {
-                Debug.Log("들어옴");
-                Debug.Log(itemInstance);
-            }
             
             _playerInputSystem.IsTestKeyPressed = false;
         }
@@ -81,24 +76,17 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void Shoot()
     {
-        _isCool = true;
-        
         // TODO 임시 테스트용 발사
-        GameObject obj = Instantiate(_projectilePrefab, _muzzlePoint.position, _muzzlePoint.rotation);
-
-        if (obj.TryGetComponent(out Projectile projectile))
+        foreach (ItemInstance item in InventoryManager.Instance.GridView.GridData.Items)
         {
-            projectile.Damage = 10;
+            if (item.Data.ItemType == ItemType.Weapon)
+            {
+                Debug.Log($"Name : {item.Data.ItemName}");        
+            }
         }
-        StartCoroutine(CarculateShootTime());
+        
     }
-
-    private IEnumerator CarculateShootTime()
-    {
-        yield return _waitForShoot;
-        _isCool = false;
-    }
-
+    
     private IEnumerator CarculateInvincibleTime()
     {
         yield return _waitForInvincibleTime;

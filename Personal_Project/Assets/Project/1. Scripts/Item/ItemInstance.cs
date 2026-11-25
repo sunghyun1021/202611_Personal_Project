@@ -27,6 +27,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Vector3 _initialEulerAngles;
     private bool _isDragging;
     private bool _isInsideGrid;
+    private bool _isCool;
     private bool _isInStorage;
     private int _cellSize;
 
@@ -268,5 +269,12 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void SetIsInGrid(bool isInGrid)
     {
         _isInsideGrid = isInGrid;
+    }
+
+    public void Shoot()
+    {
+        if (_isCool) return;
+        
+        
     }
 }

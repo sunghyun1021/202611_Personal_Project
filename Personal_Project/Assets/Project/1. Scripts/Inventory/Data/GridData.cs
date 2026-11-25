@@ -10,6 +10,7 @@ public class GridData
     
     public int MaxWidth;
     public int MaxHeight;
+    public List<ItemInstance> Items => _items;
     public HashSet<Vector2Int> ActiveCells;
     public HashSet<Vector2Int> CanActiveCells; 
     

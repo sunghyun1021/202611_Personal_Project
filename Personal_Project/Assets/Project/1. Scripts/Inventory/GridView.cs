@@ -151,7 +151,6 @@ public class GridView : MonoBehaviour
     public void StartItemDrag(ItemInstance item)
     {
         _item = item;
-        // _item = _gridData.GetItemAt(_mousePosition);
         
         if(_item != null && _item.IsInsideGrid)
         {

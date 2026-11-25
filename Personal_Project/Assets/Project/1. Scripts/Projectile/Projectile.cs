@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPoolable
 {
+    [SerializeField] private PoolableType _type;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _destroyTime;

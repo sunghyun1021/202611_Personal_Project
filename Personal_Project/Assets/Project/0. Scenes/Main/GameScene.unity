@@ -8546,6 +8546,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoolManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3352462640225091055, guid: e51dd26f7b322e5438a4742dfd42aec2, type: 3}
+      propertyPath: _poolData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352462640225091055, guid: e51dd26f7b322e5438a4742dfd42aec2, type: 3}
+      propertyPath: _poolData.Array.data[0].Size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352462640225091055, guid: e51dd26f7b322e5438a4742dfd42aec2, type: 3}
+      propertyPath: _poolData.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 100000, guid: d38980c32490b4d48b23405613616829, type: 3}
     - target: {fileID: 5725563817492757533, guid: e51dd26f7b322e5438a4742dfd42aec2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

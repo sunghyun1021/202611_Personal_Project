@@ -5,7 +5,10 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public ItemType itemType;
-    public string itemName;
     public Sprite itemIcon;
-    public List<Vector2Int> itemShape;
+    public GameObject projectilePrefab;
+    public string itemName;
+    public int attackCooltime;
+    public int attackDamage;
+    public float speed;
 }

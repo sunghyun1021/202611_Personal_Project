@@ -28,7 +28,6 @@ public class FlowManager : SingletonBehaviour<FlowManager>
 
     private void Awake()
     {
-        _inventoryCanvas.gameObject.SetActive(false);
         SetSingleton();
         _currentFloor = 0;
         _currentFloorSO = _floorSOList[_currentFloor];
