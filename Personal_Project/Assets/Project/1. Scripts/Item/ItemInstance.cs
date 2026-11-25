@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -30,6 +29,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private bool _isCool;
     private bool _isInStorage;
     private int _cellSize;
+    private float _shootCooltime;
 
     public bool IsInsideGrid => _isInsideGrid;
     public ItemData Data;
@@ -273,8 +273,15 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void Shoot()
     {
-        if (_isCool) return;
-        
-        
+        if (_shootCooltime <= Time.time)
+        {
+            _shootCooltime = Time.time + Data.AttackCooltime;
+
+            IPoolable pool;
+            
+            //pool = PoolManager.Instance.Take(Data.ProjectilePrefab, out pool);
+            
+            Debug.Log($"Name : {Data.ItemName} 발사");
+        }
     }
 }

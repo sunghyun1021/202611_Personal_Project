@@ -9,9 +9,9 @@ public class ItemData
     public Sprite ItemIcon;
     public GameObject ProjectilePrefab;
     public string ItemName;
-    public int AttackCooltime;
-    public int AttackDamage;
     public float Speed;
+    public float AttackCooltime;
+    public int AttackDamage;
 
     public ItemData(ItemSO so)
     {
@@ -20,8 +20,8 @@ public class ItemData
         ItemIcon = so.itemIcon;
         ProjectilePrefab = so.projectilePrefab;
         ItemName =  so.itemName;
+        Speed = so.speed;
         AttackCooltime = so.attackCooltime;
         AttackDamage = so.attackDamage;
-        Speed = so.speed;
     }
 }

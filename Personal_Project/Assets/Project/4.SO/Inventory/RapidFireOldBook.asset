@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d0f61991fc3ed4ea89213b787316a9, type: 3}
   m_Name: RapidFireOldBook
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemType: 2
-  itemIcon: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  itemType: 0
+  itemIcon: {fileID: 367515568, guid: f23cd7133b8505745a9025a5fee3bc80, type: 3}
+  projectilePrefab: {fileID: 5641865877712943088, guid: 43030329f2100c749a88663abfcb678f, type: 3}
   itemName: "\uACE0\uC11C"
-  attackCooltime: 0
-  attackDamage: 0
-  speed: 0
+  attackCooltime: 0.2
+  speed: 10
+  attackDamage: 5

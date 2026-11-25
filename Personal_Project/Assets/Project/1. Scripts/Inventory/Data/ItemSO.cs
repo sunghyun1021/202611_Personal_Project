@@ -8,7 +8,7 @@ public class ItemSO : ScriptableObject
     public Sprite itemIcon;
     public GameObject projectilePrefab;
     public string itemName;
-    public int attackCooltime;
-    public int attackDamage;
+    public float attackCooltime;
     public float speed;
+    public int attackDamage;
 }

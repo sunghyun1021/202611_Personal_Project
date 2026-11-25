@@ -6,14 +6,14 @@ public class Projectile : MonoBehaviour, IPoolable
 {
     [SerializeField] private PoolableType _type;
     [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private float _moveSpeed;
     [SerializeField] private float _destroyTime;
 
     private WaitForSeconds _waitForSeconds;
 
+    public float MoveSpeed;
     public int Damage;
     
-    public GameObject GameObject { get; }
+    public GameObject GameObject { get => gameObject; }
     public ObjectPool Source { get; set; }
 
     // ---------- Event Method ----------
@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour, IPoolable
     
     private void FixedUpdate()
     {
-        transform.Translate(transform.up * (_moveSpeed * Time.deltaTime), Space.World);
+        transform.Translate(transform.up * (MoveSpeed * Time.deltaTime), Space.World);
     }
 
     private void OnTriggerEnter(Collider other)

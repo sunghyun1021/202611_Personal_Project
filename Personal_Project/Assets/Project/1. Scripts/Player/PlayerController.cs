@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
@@ -15,7 +16,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     private PlayerMovement _playerMovement;
     private PlayerData _playerData;
     private PlayerInputSystem _playerInputSystem;
-    private WaitForSeconds _waitForShoot;
     private WaitForSeconds _waitForInvincibleTime;
     private Collider _collider;
     private int _remainDamage;
@@ -48,43 +48,21 @@ public class PlayerController : MonoBehaviour, IDamageable
         
         if (_playerInputSystem.IsTestKeyPressed)
         {
-            
-            
             _playerInputSystem.IsTestKeyPressed = false;
         }
     }
 
     // ---------- private Method ----------
 
-    private void CacheComponents()
-    {
-        _playerData = GetComponent<PlayerData>();
-        _playerMovement = GetComponent<PlayerMovement>();
-        _playerInputSystem = GetComponent<PlayerInputSystem>();
-        _collider = GetComponent<Collider>();
-
-        GameManager.Instance.Player = this;
-    }
-
-    private void Init()
-    {
-        _waitForShoot =  new WaitForSeconds(_shootCoolTime);
-        _waitForInvincibleTime = new WaitForSeconds(_invincibleTime);
-        _canHit = true;
-        _collider.enabled = true;
-    }
-
     private void Shoot()
     {
-        // TODO 임시 테스트용 발사
         foreach (ItemInstance item in InventoryManager.Instance.GridView.GridData.Items)
         {
             if (item.Data.ItemType == ItemType.Weapon)
             {
-                Debug.Log($"Name : {item.Data.ItemName}");        
+                item.Shoot();
             }
         }
-        
     }
     
     private IEnumerator CarculateInvincibleTime()
@@ -137,5 +115,22 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             _playerData.CurrentShield.Value += Time.deltaTime * 10;
         } 
+    }
+    
+    private void CacheComponents()
+    {
+        _playerData = GetComponent<PlayerData>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerInputSystem = GetComponent<PlayerInputSystem>();
+        _collider = GetComponent<Collider>();
+
+        GameManager.Instance.Player = this;
+    }
+
+    private void Init()
+    {
+        _waitForInvincibleTime = new WaitForSeconds(_invincibleTime);
+        _canHit = true;
+        _collider.enabled = true;
     }
 }
