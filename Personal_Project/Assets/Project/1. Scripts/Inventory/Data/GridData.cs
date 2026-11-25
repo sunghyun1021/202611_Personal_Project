@@ -18,11 +18,11 @@ public class GridData
     {
         MaxWidth = maxWidth;
         MaxHeight = maxHeight;
-        _itemInCell = new ItemInstance[maxWidth, maxHeight];
         _items = new List<ItemInstance>();
+        _itemInCell = new ItemInstance[maxWidth, maxHeight];
+        _isActive = new bool[maxWidth, maxHeight];
         ActiveCells = new HashSet<Vector2Int>();
         CanActiveCells = new HashSet<Vector2Int>();
-        _isActive = new bool[maxWidth, maxHeight];
         
         for (int i = 0; i < maxWidth; i++)
         {
@@ -61,7 +61,6 @@ public class GridData
         return true;
     }
     
-    // 배열 내에 있는가?
     public bool IsInside(Vector2Int target)
     {
         if (target.x < 0) return false;
@@ -72,7 +71,6 @@ public class GridData
         return true;
     }
     
-    // 활성화되어있는가?
     public bool IsActive(Vector2Int target)
     { 
         if (!_isActive[target.x, target.y]) return false;
