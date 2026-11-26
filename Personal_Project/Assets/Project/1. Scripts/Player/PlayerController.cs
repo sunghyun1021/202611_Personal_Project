@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             if (item.Data.ItemType == ItemType.Weapon)
             {
-                item.Shoot();
+                item.Shoot(_muzzlePoint);
             }
         }
     }

@@ -24,6 +24,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private Vector2 _itemRightBottomCornerOffset;
     private Vector2 _initialPosition;
     private Vector3 _initialEulerAngles;
+    private PoolableType _poolType;
     private bool _isDragging;
     private bool _isInsideGrid;
     private bool _isCool;
@@ -58,6 +59,7 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     private void Init()
     {
         _cellSize = GridView.CellSize;
+        _poolType = Data.ProjectilePrefab.GetComponent<Projectile>().PoolType;
     }
 
     private void BindInputActions()
@@ -271,17 +273,21 @@ public class ItemInstance : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         _isInsideGrid = isInGrid;
     }
 
-    public void Shoot()
+    public void Shoot(Transform muzzlePoint)
     {
         if (_shootCooltime <= Time.time)
         {
             _shootCooltime = Time.time + Data.AttackCooltime;
 
             IPoolable pool;
-            
-            //pool = PoolManager.Instance.Take(Data.ProjectilePrefab, out pool);
-            
+
+            pool = PoolManager.Instance.Take(_poolType);
+
             Debug.Log($"Name : {Data.ItemName} 발사");
+
+            pool.GameObject.GetComponent<Projectile>().SetData(Data.Speed, Data.AttackDamage);
+            pool.GameObject.transform.position = muzzlePoint.position;
+            pool.GameObject.transform.rotation = muzzlePoint.rotation;
         }
     }
 }
